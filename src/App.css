@@ -1,0 +1,10 @@
+.App {
+    text-align: center;
+}
+
+.MuiMenu-paper {
+    background-color: hsla(210, 14%, 7%, 0.6) !important;
+    border-bottom: 1px solid hsla(210, 14%, 28%, 0.3);
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+}
