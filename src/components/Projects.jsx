@@ -45,7 +45,7 @@ function ShowProjects() {
                             width: 350,
                             maxHeight: 167,
                             maxWidth: 250,
-                            marginTop: '20px',
+                            marginTop: '30px',
                             borderRadius: '8px',
                         }}
                         src={project.picture}
@@ -57,7 +57,7 @@ function ShowProjects() {
 
                         <Typography variant="subtitle1" sx={{ paddingLeft: '20px', paddingRight: '20px', textAlign: 'justify' }}>{project.description}</Typography>
                     </Box>
-                    <Box sx={{ marginBottom: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-end', height: '100%', gap: '20px' }}>
+                    <Box sx={{ marginBottom: '30px', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-end', height: '100%', gap: '20px' }}>
                         <ShowButtons github={project.github} demo={project.demo} />
                     </Box>
                 </Box>
@@ -75,7 +75,7 @@ const Projects = () => (
             <Typography variant="h4" sx={{ display: 'inline' }}>My Recent </Typography><Typography variant="h4" sx={{ display: 'inline', color: '#39D353' }} >Works</Typography>
             <Typography variant="subtitle1">Here are a few projects I've recently worked on.</Typography>
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' } }} >
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' } }} >
             <ShowProjects />
         </Box>
     </Box>
