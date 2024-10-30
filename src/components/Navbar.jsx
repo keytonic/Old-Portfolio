@@ -22,14 +22,14 @@ function NavBar() {
         setAnchorElNav(null);
     };
     return (
-        <AppBar position="sticky" sx={{ backgroundColor: 'hsla(210, 14%, 7%, 0.6)', borderBottom: '1px solid hsla(210, 14%, 28%, 0.3)', backdropFilter: 'blur(8px)' }}>
+        <AppBar position="sticky" sx={{ backgroundColor: 'rgb(from var(--primary_color) r g b / 60%)', borderBottom: '1px solid hsla(210, 14%, 28%, 0.3)', backdropFilter: 'blur(8px)' }}>
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
                 <Toolbar disableGutters>
 
                     {/*normal logo and text, far left*/}
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-start', gap: '25px' }}>
-                        <Logo color="#39D353" height="32px" />
-                        <Typography variant="h6" noWrap sx={{color:'#39D353'}}>Andrew Towner</Typography>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-start', gap: '25px',alignItems: 'center' }}>
+                        <Logo color1="var(--accent_color)" color2="var(--primary_color)" height="50px" />
+                        <Typography variant="h6" noWrap sx={{color:'var(--accent_color)'}}>Andrew Towner</Typography>
                     </Box>
                     {/*normal menu, far right*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-end', gap: '25px' }}>
@@ -74,7 +74,7 @@ function NavBar() {
                     </Box>
                     {/*small logo and text, center*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, flexDirection: 'row', justifyContent: 'flex-start', gap: '25px' }}>
-                        <Logo color="#39D353" height="32px" />
+                        <Logo color1="var(--accent_color)" color2="var(--primary_color)" height="50px" />
                     </Box>
                 </Toolbar>
             </Container>

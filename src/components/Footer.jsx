@@ -33,7 +33,7 @@ function Footer() {
         }
     };
     return (
-        <AppBar position="static" sx={{ backgroundColor: 'hsla(210, 14%, 7%, 0.6)', borderTop: '1px solid hsla(210, 14%, 28%, 0.3)' , backdropFilter: 'blur(8px)'}}>
+        <AppBar position="static" sx={{ backgroundColor: 'rgb(from var(--primary_color) r g b / 60%)', borderTop: '1px solid hsla(210, 14%, 28%, 0.3)' , backdropFilter: 'blur(8px)'}}>
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
                 <Toolbar disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', flexWrap: 'wrap',marginTop: { xs: '10px', md: '0px' }, marginBottom: { xs: '10px', md: '0px' } }}>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
@@ -43,10 +43,10 @@ function Footer() {
                         <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none', display: 'flex', justifyContent: 'center' }} >© 2024 AndrewTowner.com. All rights reserved.</Typography>
                     </Box>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' }, display: 'flex', justifyContent: { md: 'flex-end', xs: 'center' }, gap: '10px' }}>
-                        <IconButton onClick={handleClick} id="gh" aria-label="GitHub" sx={{color:'#39D353'}}><GitHubIcon /></IconButton>
-                        <IconButton onClick={handleClick} id="fb" aria-label="Facebook" sx={{color:'#39D353'}}><FacebookIcon /></IconButton>
-                        <IconButton onClick={handleClick} id="ig" aria-label="Instagram" sx={{color:'#39D353'}}><InstagramIcon /></IconButton>
-                        <IconButton onClick={handleClick} id="li" aria-label="LinkedIn" sx={{color:'#39D353'}}><LinkedInIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="gh" aria-label="GitHub" sx={{color:'var(--accent_color)'}}><GitHubIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="fb" aria-label="Facebook" sx={{color:'var(--accent_color)'}}><FacebookIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="ig" aria-label="Instagram" sx={{color:'var(--accent_color)'}}><InstagramIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="li" aria-label="LinkedIn" sx={{color:'var(--accent_color)'}}><LinkedInIcon /></IconButton>
                     </Box>
                 </Toolbar>
             </Container>
