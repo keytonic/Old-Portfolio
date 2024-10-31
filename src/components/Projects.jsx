@@ -33,7 +33,7 @@ function ShowProjects() {
                         marginTop: '20px',
                         gap: '20px',
                         border: '1px solid rgba(0, 0, 0, .125)',
-                        borderRadius: '8px',
+                        borderRadius: '16px',
                         boxShadow: '0 4px 5px 3px rgb(from var(--accent_color) r g b / 15%)',
                         backgroundColor: 'rgb(from var(--primary_color) r g b / 60%)',
                     }}
@@ -47,12 +47,12 @@ function ShowProjects() {
                             maxHeight: 167,
                             maxWidth: 250,
                             marginTop: '30px',
-                            borderRadius: '8px',
+                            borderRadius: '16px',
                         }}
                         src={project.picture}
                     />
                     <Box>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'var(--accent_color)' }}>{project.title}</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'var(--accent_color)',textShadow: '2px 2px var(--primary_color)' }}>{project.title}</Typography>
                     </Box>
                     <Box>
 
@@ -73,7 +73,7 @@ function ShowProjects() {
 const Projects = () => (
     <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',alignItems: 'center' }}>
         <Box sx={{ padding: '20px' }} >
-            <Typography variant="h4" sx={{ display: 'inline' }}>My Recent </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)' }} >Works</Typography>
+            <Typography variant="h4" sx={{ display: 'inline' }}>My Recent </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)'}} >Works</Typography>
             <Typography variant="subtitle1">Here are a few projects I've recently worked on.</Typography>
         </Box>
         <Box sx={{ maxWidth: '1320px', display: 'flex', flexWrap: 'wrap', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' } }} >

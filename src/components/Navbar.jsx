@@ -11,7 +11,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
 import Logo from './Logo';
 
-const pages = ['Home', 'About', 'Projects', 'Resume'];
+//const pages = ['Home', 'About', 'Projects', 'Resume'];
+const pages = ['Home', 'About', 'Skills', 'Projects','Resume', 'Contact'];//added skill and contact for unit 3 requirements
 
 function NavBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -29,7 +30,7 @@ function NavBar() {
                     {/*normal logo and text, far left*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-start', gap: '25px',alignItems: 'center' }}>
                         <Logo color1="var(--accent_color)" color2="var(--primary_color)" height="50px" />
-                        <Typography variant="h6" noWrap sx={{color:'var(--accent_color)'}}>Andrew Towner</Typography>
+                        <Typography variant="h6" noWrap sx={{color:'var(--accent_color)',textShadow: '2px 2px var(--primary_color)'}}>Andrew Towner</Typography>
                     </Box>
                     {/*normal menu, far right*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-end', gap: '25px' }}>
@@ -38,7 +39,7 @@ function NavBar() {
                         ))}
                     </Box>
                     {/*hamburger menu*/}
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{ width: '33.3333%', display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
                             aria-label="Menu"
@@ -46,6 +47,7 @@ function NavBar() {
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
                             color="inherit"
+                            sx={{color:'var(--fourth_color)'}}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -72,10 +74,15 @@ function NavBar() {
                             ))}
                         </Menu>
                     </Box>
-                    {/*small logo and text, center*/}
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, flexDirection: 'row', justifyContent: 'flex-start', gap: '25px' }}>
+                    {/*small logo, center*/}
+                    <Box sx={{ width: '33.3333%', display: { xs: 'flex', md: 'none' }, flexDirection: 'row', justifyContent: 'center' }}>
                         <Logo color1="var(--accent_color)" color2="var(--primary_color)" height="50px" />
                     </Box>
+                    <Box sx={{ width: '33.3333%', display: { xs: 'flex', md: 'none' }, flexDirection: 'row', justifyContent: 'flex-start' }}>
+                    </Box>
+
+
+
                 </Toolbar>
             </Container>
         </AppBar>

@@ -7,6 +7,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Resume from "./components/Resume";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
 import Box from '@mui/material/Box';
 import './App.css';
 
@@ -21,6 +23,8 @@ function App() {
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/resume" element={<Resume />} />
+                        <Route path="/skills" element={<Skills />} />
+                        <Route path="/Contact" element={<Contact />} />
                         <Route path="*" element={<Home />} />
                     </Routes>
                 </Box>

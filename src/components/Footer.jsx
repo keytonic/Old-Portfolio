@@ -37,10 +37,10 @@ function Footer() {
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
                 <Toolbar disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', flexWrap: 'wrap',marginTop: { xs: '10px', md: '0px' }, marginBottom: { xs: '10px', md: '0px' } }}>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
-                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none', display: 'flex', justifyContent: { md: 'flex-start', xs: 'center' } }} > Designed and Developed by Andrew Towner. </Typography>
+                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--fourth_color)', textDecoration: 'none', display: 'flex', justifyContent: { md: 'flex-start', xs: 'center' } }} > Designed and Developed by Andrew Towner. </Typography>
                     </Box>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
-                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none', display: 'flex', justifyContent: 'center' }} >© 2024 AndrewTowner.com. All rights reserved.</Typography>
+                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--fourth_color)', textDecoration: 'none', display: 'flex', justifyContent: 'center' }} >© 2024 AndrewTowner.com. All rights reserved.</Typography>
                     </Box>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' }, display: 'flex', justifyContent: { md: 'flex-end', xs: 'center' }, gap: '10px' }}>
                         <IconButton onClick={handleClick} id="gh" aria-label="GitHub" sx={{color:'var(--accent_color)'}}><GitHubIcon /></IconButton>
