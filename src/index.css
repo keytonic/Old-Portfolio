@@ -5,6 +5,13 @@
     --third_color: #D2D5DD;
     --fourth_color: #B8BACF;
     --accent_color: #39D353;
+
+
+
+
+
+
+    --AppBar-background: var(--primary_color);
 }
 
 * {
@@ -51,8 +58,8 @@ a.main-menu {
     height: 29px;
 }
 
-a.main-menu:hover, a.hamburger-menu:hover
-{
+a.main-menu:hover,
+a.hamburger-menu:hover {
     color: var(--accent_color);
 }
 
@@ -105,4 +112,42 @@ a.main-menu:hover::before {
     border-bottom: 1px solid hsla(210, 14%, 28%, 0.3);
     backdrop-filter: blur(8px);
     border-radius: 8px;
+}
+
+
+
+#T:hover,
+#A:hover {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 1px, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(1px, -1px, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-2px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(2px, 0, 0);
+    }
+}
+
+header{
+    background-color: var(--primary_color);
 }
