@@ -14,6 +14,11 @@ import Logo from './Logo';
 //const pages = ['Home', 'About', 'Projects', 'Resume'];
 const pages = ['Home', 'About', 'Skills', 'Projects','Resume', 'Contact'];//added skill and contact for unit 3 requirements
 
+
+//rgb(from var(--primary_color) r g b / 60%)
+
+
+
 function NavBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const handleOpenNavMenu = (event) => {
@@ -23,7 +28,7 @@ function NavBar() {
         setAnchorElNav(null);
     };
     return (
-        <AppBar position="sticky" sx={{ backgroundColor: 'rgb(from var(--primary_color) r g b / 60%)', borderBottom: '1px solid hsla(210, 14%, 28%, 0.3)', backdropFilter: 'blur(8px)' }}>
+        <AppBar className="trans" position="sticky" sx={{ backgroundColor: 'var(--primary_color)', borderBottom: '1px solid hsla(210, 14%, 28%, 0.3)', backdropFilter: 'blur(8px)' }}>
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
                 <Toolbar disableGutters>
 

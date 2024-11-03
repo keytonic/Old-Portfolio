@@ -1,5 +1,4 @@
 
-import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -10,9 +9,53 @@ import Resume from "./components/Resume";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Box from '@mui/material/Box';
-import './App.css';
+
+
+
+
+function HandleLoad()
+{
+
+    var style           = getComputedStyle(document.body)
+    let primary_color   = style.getPropertyValue('--primary_color');
+    let secondary_color = style.getPropertyValue('--secondary_color');
+
+    fixTrans(primary_color);
+    setBackground(primary_color,secondary_color);
+}
+
+
+function fixTrans(primary_color)
+{
+    let elements = document.getElementsByClassName('trans');
+
+    for (let i = 0; i < elements.length; i++) {
+        //console.log(getComputedStyle(elements[i]).getPropertyValue('background-color'));
+        elements[i].style.backgroundColor = primary_color + "99";
+    }
+
+}
+
+function setBackground(primary_color,secondary_color)
+{
+    document.getElementById("svg_rec").setAttribute("fill",secondary_color);
+    document.getElementById("stop_zero").setAttribute("stop-color",secondary_color);
+    document.getElementById("stop_one").setAttribute("stop-color",primary_color);
+
+    let svg = document.getElementById("svgBackground");
+    let background = '<svg id="svgBackground" xmlns="http://www.w3.org/2000/svg" width="100%">' + svg.innerHTML + '</svg>';
+    let encoded = window.btoa(background);
+    document.body.style.backgroundImage = "url(data:image/svg+xml;base64," + encoded + ")";
+}
+
+
 
 function App() {
+
+
+    window.onload = HandleLoad;
+    window.onclick = HandleLoad;
+
     return (
         <BrowserRouter>
             <div className="App">
