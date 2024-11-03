@@ -19,21 +19,26 @@ function HandleLoad()
     var style           = getComputedStyle(document.body)
     let primary_color   = style.getPropertyValue('--primary_color');
     let secondary_color = style.getPropertyValue('--secondary_color');
+    let accent_color = style.getPropertyValue('--accent_color');
 
-    fixTrans(primary_color);
+    fixTrans(primary_color,accent_color);
     setBackground(primary_color,secondary_color);
 }
 
 
-function fixTrans(primary_color)
+function fixTrans(primary_color,accent_color)
 {
     let elements = document.getElementsByClassName('trans');
 
     for (let i = 0; i < elements.length; i++) {
-        //console.log(getComputedStyle(elements[i]).getPropertyValue('background-color'));
-        elements[i].style.backgroundColor = primary_color + "99";
+        elements[i].style.backgroundColor = primary_color + "70";
     }
 
+    elements = document.getElementsByClassName('shadow');
+
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.boxShadow = "0 4px 5px 3px " + accent_color + "26";
+    }
 }
 
 function setBackground(primary_color,secondary_color)

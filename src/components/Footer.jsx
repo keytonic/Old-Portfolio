@@ -33,7 +33,7 @@ function Footer() {
         }
     };
     return (
-        <AppBar position="static" sx={{ backgroundColor: 'rgb(from var(--primary_color) r g b / 60%)', borderTop: '1px solid hsla(210, 14%, 28%, 0.3)' , backdropFilter: 'blur(8px)'}}>
+        <AppBar className="trans" position="static" sx={{ backgroundColor: 'var(--primary_color)', borderTop: '1px solid hsla(210, 14%, 28%, 0.3)' , backdropFilter: 'blur(8px)'}}>
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
                 <Toolbar disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', flexWrap: 'wrap',marginTop: { xs: '10px', md: '0px' }, marginBottom: { xs: '10px', md: '0px' } }}>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>

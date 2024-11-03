@@ -23,7 +23,7 @@ const Home = () => (
 
                 <Box
               
-                    className="card"
+                    className="card trans shadow"
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -34,8 +34,7 @@ const Home = () => (
 
                         border: '1px solid rgba(0, 0, 0, .125)',
                         borderRadius: '16px',
-                        boxShadow: '0 4px 5px 3px rgb(from var(--accent_color) r g b / 15%)',
-                        backgroundColor: 'rgb(from var(--primary_color) r g b / 60%)',
+                        backgroundColor: 'var(--primary_color)',
                     }}
                 >
 
