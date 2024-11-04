@@ -33,16 +33,16 @@ function Footer() {
         }
     };
     return (
-        <AppBar className="trans" position="static" sx={{ backgroundColor: 'var(--primary_color)', borderTop: '1px solid hsla(210, 14%, 28%, 0.3)' , backdropFilter: 'blur(8px)'}}>
+        <AppBar className="trans" position="static" sx={{ borderTop: '1px solid hsla(210, 14%, 28%, 0.3)' }}>
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
                 <Toolbar disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', flexWrap: 'wrap',marginTop: { xs: '10px', md: '0px' }, marginBottom: { xs: '10px', md: '0px' } }}>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
-                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--fourth_color)', textDecoration: 'none', display: 'flex', justifyContent: { md: 'flex-start', xs: 'center' } }} > Designed and Developed by Andrew Towner. </Typography>
+                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: { md: 'flex-start', xs: 'center' } }} > Designed and Developed by Andrew Towner. </Typography>
                     </Box>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
-                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--fourth_color)', textDecoration: 'none', display: 'flex', justifyContent: 'center' }} >© 2024 AndrewTowner.com. All rights reserved.</Typography>
+                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: 'center' }} >© 2024 AndrewTowner.com. All rights reserved.</Typography>
                     </Box>
-                    <Box sx={{ width: { md: '33.3333%', xs: '100%' }, display: 'flex', justifyContent: { md: 'flex-end', xs: 'center' }, gap: '10px' }}>
+                    <Box sx={{color:'var(--accent_color)', width: { md: '33.3333%', xs: '100%' }, display: 'flex', justifyContent: { md: 'flex-end', xs: 'center' }, gap: '10px' }}>
                         <IconButton onClick={handleClick} id="gh" aria-label="GitHub" sx={{color:'var(--accent_color)'}}><GitHubIcon /></IconButton>
                         <IconButton onClick={handleClick} id="fb" aria-label="Facebook" sx={{color:'var(--accent_color)'}}><FacebookIcon /></IconButton>
                         <IconButton onClick={handleClick} id="ig" aria-label="Instagram" sx={{color:'var(--accent_color)'}}><InstagramIcon /></IconButton>

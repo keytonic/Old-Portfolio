@@ -8,44 +8,84 @@ import Projects from "./components/Projects";
 import Resume from "./components/Resume";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
+import Misc from "./components/Misc";
 import Box from '@mui/material/Box';
 
+import { useEffect } from "react";
+
+
+function HandleLoad() {
+    var style = getComputedStyle(document.body);
+
+    let accent_color = localStorage.getItem("accent_color");
+
+    if (accent_color != null) {
+        document.documentElement.style.setProperty("--accent_color", accent_color);
+    }
+    else {
+        accent_color = style.getPropertyValue('--accent_color');
+    }
+
+    let primary_color = localStorage.getItem("primary_color");
+
+    if (primary_color != null) {
+        document.documentElement.style.setProperty("--primary_color", primary_color);
+    }
+    else {
+        primary_color = style.getPropertyValue('--primary_color');
+    }
+
+    let secondary_color = localStorage.getItem("secondary_color");
+
+    if (secondary_color != null) {
+        document.documentElement.style.setProperty("--secondary_color", secondary_color);
+    }
+    else {
+        secondary_color = style.getPropertyValue('--secondary_color');
+    }
+
+    let third_color = localStorage.getItem("third_color");
+
+    if (third_color != null) {
+        document.documentElement.style.setProperty("--third_color", third_color);
+    }
+    else {
+        third_color = style.getPropertyValue('--third_color');
+    }
 
 
 
-function HandleLoad()
-{
 
-    var style           = getComputedStyle(document.body)
-    let primary_color   = style.getPropertyValue('--primary_color');
-    let secondary_color = style.getPropertyValue('--secondary_color');
-    let accent_color = style.getPropertyValue('--accent_color');
 
-    fixTrans(primary_color,accent_color);
-    setBackground(primary_color,secondary_color);
+    fixTrans(primary_color, accent_color);
+    setBackground(primary_color, secondary_color);
 }
 
 
-function fixTrans(primary_color,accent_color)
-{
+function fixTrans(primary_color, accent_color) {
     let elements = document.getElementsByClassName('trans');
 
     for (let i = 0; i < elements.length; i++) {
-        elements[i].style.backgroundColor = primary_color + "70";
+        elements[i].style.setProperty("background-color", primary_color + "70", "important");
+    }
+
+    elements = document.getElementsByClassName('MuiMenu-paper');
+
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.setProperty("background-color", primary_color + "70", "important");
     }
 
     elements = document.getElementsByClassName('shadow');
 
     for (let i = 0; i < elements.length; i++) {
-        elements[i].style.boxShadow = "0 4px 5px 3px " + accent_color + "26";
+        elements[i].style.setProperty("box-shadow", "0 4px 5px 3px " + accent_color + "26", "important");
     }
 }
 
-function setBackground(primary_color,secondary_color)
-{
-    document.getElementById("svg_rec").setAttribute("fill",secondary_color);
-    document.getElementById("stop_zero").setAttribute("stop-color",secondary_color);
-    document.getElementById("stop_one").setAttribute("stop-color",primary_color);
+function setBackground(primary_color, secondary_color) {
+    document.getElementById("svg_rec").setAttribute("fill", secondary_color);
+    document.getElementById("stop_zero").setAttribute("stop-color", secondary_color);
+    document.getElementById("stop_one").setAttribute("stop-color", primary_color);
 
     let svg = document.getElementById("svgBackground");
     let background = '<svg id="svgBackground" xmlns="http://www.w3.org/2000/svg" width="100%">' + svg.innerHTML + '</svg>';
@@ -58,8 +98,12 @@ function setBackground(primary_color,secondary_color)
 function App() {
 
 
-    window.onload = HandleLoad;
-    window.onclick = HandleLoad;
+    //window.onload = HandleLoad;
+    //window.onclick = HandleLoad;
+
+    useEffect(() => {
+        HandleLoad();
+    }, []);
 
     return (
         <BrowserRouter>
@@ -73,6 +117,7 @@ function App() {
                         <Route path="/resume" element={<Resume />} />
                         <Route path="/skills" element={<Skills />} />
                         <Route path="/Contact" element={<Contact />} />
+                        <Route path="/Misc" element={<Misc />} />
                         <Route path="*" element={<Home />} />
                     </Routes>
                 </Box>

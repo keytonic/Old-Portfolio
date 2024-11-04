@@ -12,12 +12,7 @@ import { Link } from "react-router-dom";
 import Logo from './Logo';
 
 //const pages = ['Home', 'About', 'Projects', 'Resume'];
-const pages = ['Home', 'About', 'Skills', 'Projects','Resume', 'Contact'];//added skill and contact for unit 3 requirements
-
-
-//rgb(from var(--primary_color) r g b / 60%)
-
-
+const pages = ['Home', 'Skills', 'Projects', 'About','Resume', 'Misc','Contact'];//added skill contactz
 
 function NavBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -28,14 +23,14 @@ function NavBar() {
         setAnchorElNav(null);
     };
     return (
-        <AppBar className="trans" position="sticky" sx={{ backgroundColor: 'var(--primary_color)', borderBottom: '1px solid hsla(210, 14%, 28%, 0.3)', backdropFilter: 'blur(8px)' }}>
+        <AppBar className="trans" position="sticky" sx={{ borderBottom: '1px solid hsla(210, 14%, 28%, 0.3)' }}>
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
                 <Toolbar disableGutters>
 
                     {/*normal logo and text, far left*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-start', gap: '25px',alignItems: 'center' }}>
                         <Logo color1="var(--accent_color)" color2="var(--primary_color)" height="50px" />
-                        <Typography variant="h6" noWrap sx={{color:'var(--accent_color)',textShadow: '2px 2px var(--primary_color)'}}>Andrew Towner</Typography>
+                        <Typography variant="h6" noWrap sx={{color:'var(--accent_color)'}}>Andrew Towner</Typography>
                     </Box>
                     {/*normal menu, far right*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-end', gap: '25px' }}>
@@ -52,11 +47,13 @@ function NavBar() {
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
                             color="inherit"
-                            sx={{color:'var(--fourth_color)'}}
                         >
-                            <MenuIcon />
+                            <MenuIcon 
+                                sx={{color:'var(--third_color)'}}
+                            />
                         </IconButton>
                         <Menu
+                          
                             id="menu-appbar"
                             anchorEl={anchorElNav}
                             anchorOrigin={{
@@ -70,7 +67,7 @@ function NavBar() {
                             }}
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
-                            sx={{ display: { xs: 'block', md: 'none' } }}
+                            sx={{ display: { xs: 'block', md: 'none' }, borderRadius: '16px' }}
                         >
                             {pages.map((page,i) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>

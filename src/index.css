@@ -3,13 +3,34 @@
 
     --primary_color: #0f1214;
     --secondary_color: #616161;
-    --third_color: #D2D5DD;
-    --fourth_color: #B8BACF;
+    --third_color: #B8BACF;
     --accent_color: #39D353;
 
     --AppBar-background: var(--primary_color);
 }
 
+
+.trans,
+.MuiMenu-paper {
+    background-color: rgb(from var(--primary_color) r g b / 40%) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+.shadow {
+    box-shadow: 0 4px 5px 3px rgb(from var(--accent_color) r g b / 15%) !important;
+}
+
+
+.MuiMenu-paper {
+    xbackdrop-filter: unset !important;
+}
+
+.MuiMenu-list {
+    xbackdrop-filter: blur(8px) !important;
+}
+
+
+/*
 rect#svg_rec
 {
     fill:var(--secondary_color);
@@ -24,9 +45,14 @@ stop#stop_one
 {
     stop-color:var(--primary_color);
 }
-
+*/
 * {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    xcolor: var(--third_color);
+}
+
+button {
+    color: var(--accent_color);
 }
 
 body {
@@ -40,8 +66,8 @@ code {
 }
 
 body {
-    color: var(--fourth_color);
-    background-color: var(--secondary_color);
+    color: var(--third_color);
+    background-color: var(--primary_color);
     background-attachment: fixed;
     background-repeat: repeat;
     xbackground-size: cover;
@@ -55,7 +81,7 @@ a {
 }
 
 a.hamburger-menu {
-    color: var(--fourth_color)
+    color: var(--third_color)
 }
 
 a.main-menu {
@@ -63,7 +89,7 @@ a.main-menu {
     justify-content: center;
     align-items: center;
     position: relative;
-    color: var(--fourth_color);
+    color: var(--third_color);
     text-decoration: none;
     height: 29px;
 }
@@ -117,12 +143,13 @@ a.main-menu:hover::before {
     text-align: center;
 }
 
+/*
 .MuiMenu-paper {
-    background-color: rgb(from var(--primary_color) r g b / 60%) !important;
+    xbackground-color: rgb(from var(--primary_color) r g b / 40%) !important;
     border-bottom: 1px solid hsla(210, 14%, 28%, 0.3);
     backdrop-filter: blur(8px);
     border-radius: 8px;
-}
+}*/
 
 
 
@@ -158,6 +185,45 @@ a.main-menu:hover::before {
     }
 }
 
-header{
+header {
     background-color: var(--primary_color);
+}
+
+input[type="color"] {
+    border-radius: 5px;
+    padding: 0;
+    border: 0px solid #DDD;
+}
+
+input[type="color"]::-moz-color-swatch {
+    border: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+.grid_cell_item {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: unset !important;
+    box-shadow: unset !important;
+    color: var(--third_color) !important;
+}
+
+#preset_select
+{
+    height: 27px;
+    border-radius: 8px;
+    border: 0;
+    background-color: var(--third_color) !important;
 }

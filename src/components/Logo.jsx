@@ -23,7 +23,7 @@ const Logo2 = (props) => (
 
 const Logo = (props) => (
     <svg id="logo" width="80" height={props.height} xmlns="http://www.w3.org/2000/svg" version="1.1" xmlSpace="preserve">
-        <a href="https://www.andrewtowner.com/">
+        <a href="./">
             <g>
                 <title></title>
                 <g id="T">

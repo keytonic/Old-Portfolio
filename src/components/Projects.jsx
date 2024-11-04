@@ -34,7 +34,6 @@ function ShowProjects() {
                         gap: '20px',
                         border: '1px solid rgba(0, 0, 0, .125)',
                         borderRadius: '16px',
-                        backgroundColor: 'var(--primary_color)',
                     }}
                 >
                     <Box
@@ -73,7 +72,7 @@ const Projects = () => (
     <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',alignItems: 'center' }}>
         <Box sx={{ padding: '20px' }} >
             <Typography variant="h4" sx={{ display: 'inline' }}>My Recent </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)'}} >Works</Typography>
-            <Typography variant="subtitle1">Here are a few projects I've recently worked on.</Typography>
+            <Typography variant="subtitle1">Here are a few of my recent projects.</Typography>
         </Box>
         <Box sx={{ maxWidth: '1320px', display: 'flex', flexWrap: 'wrap', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' } }} >
             

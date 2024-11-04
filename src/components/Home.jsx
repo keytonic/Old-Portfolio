@@ -34,7 +34,6 @@ const Home = () => (
 
                         border: '1px solid rgba(0, 0, 0, .125)',
                         borderRadius: '16px',
-                        backgroundColor: 'var(--primary_color)',
                     }}
                 >
 
