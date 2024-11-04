@@ -99,7 +99,7 @@ function App() {
 
 
     //window.onload = HandleLoad;
-    //window.onclick = HandleLoad;
+    window.onclick = HandleLoad;
 
     useEffect(() => {
         HandleLoad();

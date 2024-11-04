@@ -22,7 +22,7 @@
 
 
 .MuiMenu-paper {
-    xbackdrop-filter: unset !important;
+    border-radius: 18px !important;
 }
 
 .MuiMenu-list {
