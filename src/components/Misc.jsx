@@ -5,7 +5,7 @@ import { useState } from "react";
 import Grid from '@mui/material/Grid2';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-
+import { useEffect } from "react";
 
 
 
@@ -51,28 +51,44 @@ export default function Misc()
 
 
     function HandlePrimaryColor(event) {
-        localStorage.setItem("primary_color", event.target.value);
-        document.documentElement.style.setProperty("--primary_color", event.target.value);
-        setPrimaryColor(event.target.value);
-        setBackground(primary_color,secondary_color);
-        fixTrans(primary_color, accent_color);
+        SetColor(event.target.value,null,null,null);
     }
     function HandleSecondaryColor(event) {
-        localStorage.setItem("secondary_color", event.target.value);
-        document.documentElement.style.setProperty("--secondary_color", event.target.value);
-        setSecondaryColor(event.target.value);
-        setBackground(primary_color,secondary_color);
+        SetColor(null,event.target.value,null,null);
     }
     function HandleThirdColor(event) {
-        localStorage.setItem("third_color", event.target.value);
-        document.documentElement.style.setProperty("--third_color", event.target.value);
-        setThirdColor(event.target.value);
+        SetColor(null,null,event.target.value,null);
     }
     function HandleAccentColor(event) {
-        localStorage.setItem("accent_color", event.target.value);
-        document.documentElement.style.setProperty("--accent_color", event.target.value);
-        setAccentColor(event.target.value);
-        fixTrans(primary_color, accent_color);
+        SetColor(null,null,null,event.target.value);
+    }
+
+    function SetColor(p = null, s = null, t = null, a = null)
+    {
+            if(p)
+            {
+                localStorage.setItem("primary_color", p);
+                document.documentElement.style.setProperty("--primary_color", p);
+                setPrimaryColor(p);
+            }
+            if(s)
+            {
+                localStorage.setItem("secondary_color",s);
+                document.documentElement.style.setProperty("--secondary_color",s);
+                setSecondaryColor(s);
+            }
+            if(t)
+            {
+                localStorage.setItem("third_color", t);
+                document.documentElement.style.setProperty("--third_color", t);
+                setThirdColor(t);
+            }
+            if(a)
+            {
+                localStorage.setItem("accent_color", a);
+                document.documentElement.style.setProperty("--accent_color", a);
+                setAccentColor(a);
+            }
     }
 
     function setBackground(primary_color,secondary_color)
@@ -109,57 +125,31 @@ export default function Misc()
 
     function HandlePresets(event)
     {
-        let p = "";
-        let s = "";
-        let t = "";
-        let a = "";
-
-        if(event.target.value == "Sith")
+        if(event.target.value == "Jedi")
         {
-            p = "#000000";
-            s = "#616161";
-            t = "#dfdfdf";
-            a = "#ff0000";
+            SetColor("#212227","#606060","#ebebeb","#4b8cc8");
         }
-        else if(event.target.value == "Jedi")
+        else if(event.target.value == "Ravens")
         {
-            p = "#000000";
-            s = "#a37f50";
-            t = "#dcceb4";
-            a = "#9fe5e5";
+            SetColor("#212227","#241773","#ebebeb","#9e7c0c");
+        }
+        else if(event.target.value == "Sith")
+        {
+            SetColor("#212227","#606060","#ebebeb","#ff0000");
         }
         else if(event.target.value == "Xbox")
         {
-            p = "#0f1214";
-            s = "#616161";
-            t = "#B8BACF";
-            a = "#39D353";
-        }
-
-        if( p != "" && s != "" && t != "" && a != "")
-        {
-            //primary
-            localStorage.setItem("primary_color", p);
-            document.documentElement.style.setProperty("--primary_color", p);
-            setPrimaryColor(p);
-            //secondary
-            localStorage.setItem("secondary_color",s);
-            document.documentElement.style.setProperty("--secondary_color",s);
-            setSecondaryColor(s);
-            //third
-            localStorage.setItem("third_color", t);
-            document.documentElement.style.setProperty("--third_color", t);
-            setThirdColor(t);
-            //accent
-            localStorage.setItem("accent_color", a);
-            document.documentElement.style.setProperty("--accent_color", a);
-            setAccentColor(a);
-            //finish up
-            setBackground(p,s);
-            fixTrans(p, a);
+            SetColor("#212227","#606060","#ebebeb","#39D353");
         }
     }
     
+    useEffect(() => {
+        setBackground(PrimaryColor,SecondaryColor);
+    }, [PrimaryColor,SecondaryColor]);
+
+    useEffect(() => {
+        fixTrans(PrimaryColor, AccentColor);
+    }, [PrimaryColor,AccentColor]);
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
@@ -190,7 +180,7 @@ export default function Misc()
                         </Grid>
                         <Grid size={6}>
                             <Item className="grid_cell_item">
-                                <input id="primary_picker" onChange={HandlePrimaryColor} className="color_picker" style={{ display: 'inline' }} type="color" value={PrimaryColor} />
+                                <input onInput={HandlePrimaryColor} className="color_picker" style={{ display: 'inline' }} type="color" value={PrimaryColor} />
                             </Item>
                         </Grid>
                         <Grid size={6}>
@@ -200,7 +190,7 @@ export default function Misc()
                         </Grid>
                         <Grid size={6}>
                             <Item className="grid_cell_item">
-                                <input onChange={HandleSecondaryColor} className="color_picker" style={{ display: 'inline' }} type="color" value={SecondaryColor} />
+                                <input onInput={HandleSecondaryColor} className="color_picker" style={{ display: 'inline' }} type="color" value={SecondaryColor} />
                             </Item>
                         </Grid>
                         <Grid size={6}>
@@ -210,7 +200,7 @@ export default function Misc()
                         </Grid>
                         <Grid size={6}>
                             <Item className="grid_cell_item">
-                                <input onChange={HandleThirdColor} className="color_picker" style={{ display: 'inline' }} type="color" value={ThirdColor} />
+                                <input onInput={HandleThirdColor} className="color_picker" style={{ display: 'inline' }} type="color" value={ThirdColor} />
                             </Item>
                         </Grid>
                         <Grid size={6}>
@@ -220,7 +210,7 @@ export default function Misc()
                         </Grid>
                         <Grid size={6}>
                             <Item className="grid_cell_item">
-                                <input onChange={HandleAccentColor} className="color_picker" style={{ display: 'inline' }} type="color" value={AccentColor} />
+                                <input onInput={HandleAccentColor} className="color_picker" style={{ display: 'inline' }} type="color" value={AccentColor} />
                             </Item>
                         </Grid>
                         <Grid size={6}>
@@ -232,9 +222,10 @@ export default function Misc()
                             <Item className="grid_cell_item">
                                 <select id="preset_select" onChange={HandlePresets} defaultValue="">
                                     <option value=""></option>
-                                    <option value="Xbox">Xbox</option>
-                                    <option value="Sith">Sith</option>
                                     <option value="Jedi">Jedi</option>
+                                    <option value="Ravens">Ravens</option>
+                                    <option value="Sith">Sith</option>
+                                    <option value="Xbox">Xbox</option>
                                 </select>
                             </Item>
                         </Grid>

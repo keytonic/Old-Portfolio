@@ -15,9 +15,12 @@ import { useEffect } from "react";
 
 
 function HandleLoad() {
-    var style = getComputedStyle(document.body);
 
+    let style = getComputedStyle(document.body);
+    let primary_color = localStorage.getItem("primary_color");
     let accent_color = localStorage.getItem("accent_color");
+    let secondary_color = localStorage.getItem("secondary_color");
+    let third_color = localStorage.getItem("third_color");
 
     if (accent_color != null) {
         document.documentElement.style.setProperty("--accent_color", accent_color);
@@ -25,37 +28,24 @@ function HandleLoad() {
     else {
         accent_color = style.getPropertyValue('--accent_color');
     }
-
-    let primary_color = localStorage.getItem("primary_color");
-
     if (primary_color != null) {
         document.documentElement.style.setProperty("--primary_color", primary_color);
     }
     else {
         primary_color = style.getPropertyValue('--primary_color');
     }
-
-    let secondary_color = localStorage.getItem("secondary_color");
-
     if (secondary_color != null) {
         document.documentElement.style.setProperty("--secondary_color", secondary_color);
     }
     else {
         secondary_color = style.getPropertyValue('--secondary_color');
     }
-
-    let third_color = localStorage.getItem("third_color");
-
     if (third_color != null) {
         document.documentElement.style.setProperty("--third_color", third_color);
     }
     else {
         third_color = style.getPropertyValue('--third_color');
     }
-
-
-
-
 
     fixTrans(primary_color, accent_color);
     setBackground(primary_color, secondary_color);
@@ -99,7 +89,7 @@ function App() {
 
 
     //window.onload = HandleLoad;
-    window.onclick = HandleLoad;
+    //window.onclick = HandleLoad;
 
     useEffect(() => {
         HandleLoad();

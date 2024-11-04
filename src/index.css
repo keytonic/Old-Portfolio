@@ -1,9 +1,9 @@
 :root {
     /*https://coolors.co/0f1214-616161-39d353-d2d5dd-b8bacf*/
 
-    --primary_color: #0f1214;
-    --secondary_color: #616161;
-    --third_color: #B8BACF;
+    --primary_color: #212227;
+    --secondary_color: #606060;
+    --third_color: #ebebeb;
     --accent_color: #39D353;
 
     --AppBar-background: var(--primary_color);
