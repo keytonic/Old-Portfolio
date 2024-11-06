@@ -1,27 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { useState } from "react";
 import Grid from '@mui/material/Grid2';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import { useEffect } from "react";
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
+import { alpha, styled } from '@mui/material/styles';
+
+const CssTextField = styled(TextField)({
+
+    '& label.Mui-focused': 
+    { 
+        color: 'var(--accent_color)', 
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': { borderColor: 'var(--secondary_color)',},
+        '&:hover fieldset': { borderColor: 'var(--third_color)',},
+        '&.Mui-focused fieldset': { borderColor: 'var(--accent_color)',},
+    },
+});
 
 
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
-  }),
-}));
+
+
 export default function Misc()
 {
-    
     let primary_color = localStorage.getItem("primary_color");
     let secondary_color = localStorage.getItem("secondary_color");
     let third_color = localStorage.getItem("third_color");
@@ -108,6 +111,7 @@ export default function Misc()
     
         for (let i = 0; i < elements.length; i++) {
             elements[i].style.setProperty("background-color", primary_color + "70", "important");
+            elements[i].style.setProperty("border", "1px solid " + primary_color + "40", "important");
         }
     
         elements = document.getElementsByClassName('MuiMenu-paper');
@@ -158,81 +162,47 @@ export default function Misc()
                 <Typography variant="subtitle1">Some fun customization options.</Typography>
             </Box>
             <Box sx={{ maxWidth: '1320px', display: 'flex', flexWrap: 'wrap', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' } }} >
-                <Box
-                    className="card trans shadow"
-                    sx={{
-                        /*
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'flex-start',
-                        alignItems: 'center',*/
-                        padding: '20px',
-                        border: '1px solid rgba(0, 0, 0, .125)',
-                        borderRadius: '16px',
-
-                    }}
-                >
-                    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }}>
-                        <Grid size={6}>
-                            <Item className="grid_cell_item">
+                <Box className="card trans shadow" sx={{padding: '20px',border: '1px solid rgba(0, 0, 0, .125)',borderRadius: '16px' }} >
+                    <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }} sx={{margin:'20px', maxWidth: '600px'}}>
+                        <Grid size={6} className="grid_cell_item">
                                 <Typography variant="subtitle1" style={{ display: 'inline' }}>Primary Color: </Typography>
-                            </Item>
                         </Grid>
-                        <Grid size={6}>
-                            <Item className="grid_cell_item">
+                        <Grid size={6} className="grid_cell_item">
                                 <input onInput={HandlePrimaryColor} className="color_picker" style={{ display: 'inline' }} type="color" value={PrimaryColor} />
-                            </Item>
                         </Grid>
-                        <Grid size={6}>
-                            <Item className="grid_cell_item">
+                        <Grid size={6} className="grid_cell_item">
                                 <Typography variant="subtitle1" style={{ display: 'inline' }}>Secondary Color: </Typography>
-                            </Item>
                         </Grid>
-                        <Grid size={6}>
-                            <Item className="grid_cell_item">
+                        <Grid size={6} className="grid_cell_item">
                                 <input onInput={HandleSecondaryColor} className="color_picker" style={{ display: 'inline' }} type="color" value={SecondaryColor} />
-                            </Item>
                         </Grid>
-                        <Grid size={6}>
-                            <Item className="grid_cell_item">
+                        <Grid size={6} className="grid_cell_item">
                                 <Typography variant="subtitle1" style={{ display: 'inline' }}>Third Color: </Typography>
-                            </Item>
                         </Grid>
-                        <Grid size={6}>
-                            <Item className="grid_cell_item">
+                        <Grid size={6} className="grid_cell_item">
                                 <input onInput={HandleThirdColor} className="color_picker" style={{ display: 'inline' }} type="color" value={ThirdColor} />
-                            </Item>
                         </Grid>
-                        <Grid size={6}>
-                            <Item className="grid_cell_item">
+                        <Grid size={6} className="grid_cell_item">
                                 <Typography variant="subtitle1" style={{ display: 'inline' }}>Accent Color: </Typography>
-                            </Item>
                         </Grid>
-                        <Grid size={6}>
-                            <Item className="grid_cell_item">
+                        <Grid size={6} className="grid_cell_item">
                                 <input onInput={HandleAccentColor} className="color_picker" style={{ display: 'inline' }} type="color" value={AccentColor} />
-                            </Item>
                         </Grid>
-                        <Grid size={6}>
-                            <Item className="grid_cell_item">
+                        <Grid size={6} className="grid_cell_item">
                                 <Typography variant="subtitle1" style={{ display: 'inline' }}>Presets: </Typography>
-                            </Item>
                         </Grid>
-                        <Grid size={6}>
-                            <Item className="grid_cell_item">
-                                <select id="preset_select" onChange={HandlePresets} defaultValue="">
-                                    <option value=""></option>
-                                    <option value="Jedi">Jedi</option>
-                                    <option value="Ravens">Ravens</option>
-                                    <option value="Sith">Sith</option>
-                                    <option value="Xbox">Xbox</option>
-                                </select>
-                            </Item>
+                        <Grid size={6} className="grid_cell_item">
+                            <CssTextField className="mySelect" select onChange={HandlePresets} defaultValue="" size="small" sx={{height:'28px'}}>
+                                <MenuItem className="MenuItemItem" value=""></MenuItem>
+                                <MenuItem className="MenuItemItem" value="Jedi">Jedi</MenuItem>
+                                <MenuItem className="MenuItemItem" value="Ravens">Ravens</MenuItem>
+                                <MenuItem className="MenuItemItem" value="Sith">Sith</MenuItem>
+                                <MenuItem className="MenuItemItem" value="Xbox">Xbox</MenuItem>
+                            </CssTextField>
                         </Grid>
                     </Grid>
                 </Box>
             </Box>
         </Box>
     );
-
 }

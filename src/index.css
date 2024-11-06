@@ -12,7 +12,7 @@
 
 .trans,
 .MuiMenu-paper {
-    background-color: rgb(from var(--primary_color) r g b / 40%) !important;
+    background-color: rgb(from var(--primary_color) r g b / 44%) !important;
     backdrop-filter: blur(8px) !important;
 }
 
@@ -29,30 +29,38 @@
     xbackdrop-filter: blur(8px) !important;
 }
 
-
-/*
-rect#svg_rec
+.card
 {
-    fill:var(--secondary_color);
+    xborder: 1px solid hsl(0deg 0% 0% / 25%) !important;
+    border: 1px solid rgb(from var(--primary_color) r g b / 25%) !important;/*40 */
+    border-radius: 16px;
 }
 
-stop#stop_zero
-{
-    stop-color:var(--secondary_color);
-}
-
-stop#stop_one
-{
-    stop-color:var(--primary_color);
-}
-*/
 * {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     xcolor: var(--third_color);
 }
 
-button {
-    color: var(--accent_color);
+button
+{
+    color: var(--accent_color) !important;
+    border: 1px solid var(--accent_color) !important;
+}
+
+input
+{
+    color: var(--third_color) !important;
+}
+
+.formItem
+{
+    border: 1px solid var(--accent_color) !important;
+}
+
+
+.socials
+{
+    border: 0 !important;
 }
 
 body {
@@ -215,9 +223,7 @@ input[type="color"]::-webkit-color-swatch {
     justify-content: center;
     align-items: center;
 
-    background-color: unset !important;
-    box-shadow: unset !important;
-    color: var(--third_color) !important;
+ 
 }
 
 #preset_select
@@ -226,4 +232,34 @@ input[type="color"]::-webkit-color-swatch {
     border-radius: 8px;
     border: 0;
     background-color: var(--third_color) !important;
+}
+
+
+.MuiInputLabel-root, .MuiFormLabel-colorPrimary, .MuiInputBase-input, .MenuItemItem
+{
+    color: var(--third_color) !important;
+}
+
+.MuiInputLabel-shrink
+{
+    color: var(--secondary_color) !important;
+}
+.Mui-focused
+{
+    color: var(--accent_color) !important;
+}
+
+.mySelect div
+{
+    height:28px !important;
+    min-width:50px !important;
+    border-color: var(--secondary_color) !important;
+    color: var(--third_color) !important;
+}
+
+.mySelect div div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

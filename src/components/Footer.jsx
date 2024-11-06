@@ -43,10 +43,10 @@ function Footer() {
                         <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: 'center' }} >© 2024 AndrewTowner.com. All rights reserved.</Typography>
                     </Box>
                     <Box sx={{color:'var(--accent_color)', width: { md: '33.3333%', xs: '100%' }, display: 'flex', justifyContent: { md: 'flex-end', xs: 'center' }, gap: '10px' }}>
-                        <IconButton onClick={handleClick} id="gh" aria-label="GitHub" sx={{color:'var(--accent_color)'}}><GitHubIcon /></IconButton>
-                        <IconButton onClick={handleClick} id="fb" aria-label="Facebook" sx={{color:'var(--accent_color)'}}><FacebookIcon /></IconButton>
-                        <IconButton onClick={handleClick} id="ig" aria-label="Instagram" sx={{color:'var(--accent_color)'}}><InstagramIcon /></IconButton>
-                        <IconButton onClick={handleClick} id="li" aria-label="LinkedIn" sx={{color:'var(--accent_color)'}}><LinkedInIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="gh" className="socials" aria-label="GitHub" sx={{color:'var(--accent_color)'}}><GitHubIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="fb" className="socials" aria-label="Facebook" sx={{color:'var(--accent_color)'}}><FacebookIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="ig" className="socials" aria-label="Instagram" sx={{color:'var(--accent_color)'}}><InstagramIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="li" className="socials" aria-label="LinkedIn" sx={{color:'var(--accent_color)'}}><LinkedInIcon /></IconButton>
                     </Box>
                 </Toolbar>
             </Container>

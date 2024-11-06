@@ -57,6 +57,8 @@ function fixTrans(primary_color, accent_color) {
 
     for (let i = 0; i < elements.length; i++) {
         elements[i].style.setProperty("background-color", primary_color + "70", "important");
+        //border: 1px solid rgb(from var(--primary_color) r g b / 25%) !important;/*40 */
+        elements[i].style.setProperty("border", "1px solid " + primary_color + "40", "important");
     }
 
     elements = document.getElementsByClassName('MuiMenu-paper');

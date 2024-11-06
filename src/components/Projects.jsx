@@ -10,8 +10,8 @@ import Container from '@mui/material/Container';
 function ShowButtons(parms) {
     return (
         <>
-            {parms.demo ? <Button color="#39D353" sx={{ color: 'var(--accent_color)' }} variant="outlined" startIcon={<RocketLaunchIcon />} onClick={() => { setTimeout(`window.open('${parms.demo}', '_blank');`, 1000); }}>Demo</Button> : ""}
-            {parms.github ? <Button color="#39D353" sx={{ color: 'var(--accent_color)' }} variant="outlined" startIcon={<GitHubIcon />} onClick={() => { setTimeout(`window.open('${parms.github}', '_blank');`, 1000); }}>GitHub</Button> : ""}
+            {parms.demo ? <Button variant="outlined" startIcon={<RocketLaunchIcon />} onClick={() => { setTimeout(`window.open('${parms.demo}', '_blank');`, 1000); }}>Demo</Button> : ""}
+            {parms.github ? <Button variant="outlined" startIcon={<GitHubIcon />} onClick={() => { setTimeout(`window.open('${parms.github}', '_blank');`, 1000); }}>GitHub</Button> : ""}
         </>
     );
 }
