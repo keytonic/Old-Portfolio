@@ -11,8 +11,11 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
 import Logo from './Logo';
 
+
+//Added Skills and Contact page per requirements of unit 3
+const pages = ['Home', 'Skills', 'Projects', 'About','Resume', 'Misc','Contact'];
 //const pages = ['Home', 'About', 'Projects', 'Resume'];
-const pages = ['Home', 'Skills', 'Projects', 'About','Resume', 'Misc','Contact'];//added skill contactz
+
 
 function NavBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -41,6 +44,7 @@ function NavBar() {
                     {/*hamburger menu*/}
                     <Box sx={{ width: '33.3333%', display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
+                            className="socials"
                             size="large"
                             aria-label="Menu"
                             aria-controls="menu-appbar"

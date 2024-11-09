@@ -5,7 +5,11 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import { alpha, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Alert from '@mui/material/Alert';
+import Collapse from '@mui/material/Collapse';
 
 const CssTextField = styled(TextField)({
 
@@ -20,9 +24,129 @@ const CssTextField = styled(TextField)({
     },
 });
 
+function MyForm()
+{
+    const [myEmail, setmyEmail] = useState({ name: "", phone: "", email: "", message: "", render:false });
+    const [myAlert, setmyAlert] = useState({ open: false, message: "", severity: "" });
+    
+    function handleSubmit(event)
+    {    
+        if(myEmail.name == "" || myEmail.name.length < 3)
+        {
+            setmyAlert({open: true, severity: "error", message:"Please enter a valid name." });
+        }
+        else if(myEmail.phone == "" || myEmail.phone.length < 10)
+        {
+            setmyAlert({open: true, severity: "error", message:"Please enter a valid phone number." });
+        }
+        else if(myEmail.email == "" || myEmail.email.length < 8 || myEmail.email.indexOf("@") == -1)
+        {
+            setmyAlert({open: true, severity: "error", message:"Please enter a valid email address." });
+        }
+        else if(myEmail.message == "")
+        {
+            setmyAlert({open: true, severity: "error", message:"Please enter a message." });
+        }
+        else
+        {
+            var http = new XMLHttpRequest();
+        
+            http.onreadystatechange = function() 
+            {
+                if (this.readyState == 4 && this.status == 200) 
+                {
+                    setmyAlert({open: true, severity: "success", message:"Email sent!" });
+                    setmyEmail({name:"", email:"", phone:"", message: "" });
+                }
+            };
+        
+            http.open('POST', 'post.php', true);
+            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            http.send(`name=${myEmail.name}&phone=${myEmail.phone}&email=${myEmail.email}&message=${myEmail.message}`);
+        }
+    }
 
+    function handleChange(event)
+    {
+        if(event.target.name == "fname")
+        {
+            setmyEmail((previous) => { return { ...previous, name: event.target.value }; });
+        }
+        else if(event.target.name == "fphone")
+        {
+            setmyEmail((previous) => { return { ...previous, phone: event.target.value }; });
+        }
+        else if(event.target.name == "femail")
+        {
+            setmyEmail((previous) => { return { ...previous, email: event.target.value }; });
+        }
+        else if(event.target.name == "fmessage")
+        {
+            setmyEmail((previous) => { return { ...previous, message: event.target.value }; });
+        }
+    }
 
-export default function Contact() {
+    return (
+        <form autoComplete="off" name="theForm">
+            <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }} sx={{ margin: '20px', maxWidth: '600px' }}>
+                <Grid size={6} sx={{ textAlign: { sm: 'center', md: 'right' } }}>
+                    <CssTextField name="fname" value={myEmail.name} onChange={handleChange} className="form_text" label="Name" variant="outlined" autoComplete="xyz1234" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } }} />
+                </Grid>
+                <Grid size={6} sx={{ textAlign: { sm: 'center', md: 'left' } }}>
+                    <CssTextField name="fphone" value={myEmail.phone} onChange={handleChange} className="form_text" label="Phone" variant="outlined" autoComplete="xyz1234" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } }} />
+                </Grid>
+                <Grid size={12}>
+                    <CssTextField name="femail" value={myEmail.email} onChange={handleChange} className="form_text" label="Email" variant="outlined" autoComplete="xyz1234" sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} />
+                </Grid>
+                <Grid size={12}>
+                    <CssTextField name="fmessage" value={myEmail.message} onChange={handleChange} className="form_text" label="Message" multiline rows={4} sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} />
+                </Grid>
+                <Grid size={12} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    
+                    <Collapse in={myAlert.open}sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} >
+                        <Alert
+                            severity={myAlert.severity}
+                            action={
+                                <IconButton size="small" onClick={() => { setmyAlert((previousState) => { return { ...previousState, open: false, }; }); }} >
+                                    <CloseIcon fontSize="inherit" />
+                                </IconButton>
+                            }
+                            sx={{ marginBottom: '24px', backgroundColor: 'var(--third_color) !important', color: 'var(--primary_color) !important' }}
+                            >
+                            {myAlert.message}
+                        </Alert>
+                    </Collapse>
+                    <Button variant="outlined" startIcon={<SendIcon />} onClick={handleSubmit}>Send</Button>
+                </Grid>
+            </Grid>
+        </form>
+    );
+}
+
+export default function Contact() 
+{
+    useEffect(() => {
+        fixTrans();
+    }, []);
+
+    function fixTrans() {
+    
+        let style = getComputedStyle(document.body);
+        let third_color = localStorage.getItem("third_color");
+    
+        if (third_color == null) 
+        {
+            third_color = style.getPropertyValue('--third_color');
+        }
+    
+    
+        let elements = document.getElementsByClassName('form_text');
+    
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.setProperty("background-color", third_color + "1a", "important");
+        }
+    }
+
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
             <Box sx={{ padding: '20px' }} >
@@ -31,25 +155,7 @@ export default function Contact() {
             </Box>
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center' }} >
                 <Box className="card trans shadow" sx={{ padding: '20px', border: '1px solid rgba(0, 0, 0, .125)', borderRadius: '16px' }} >
-                    <form noValidate autoComplete="off">
-                        <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }} sx={{ margin: '20px', maxWidth: '600px' }}>
-                            <Grid size={6} sx={{ textAlign: { sm: 'center', md: 'right' } }}>
-                                <CssTextField label="Name" variant="outlined" autoComplete="xyz123" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } }} />
-                            </Grid>
-                            <Grid size={6} sx={{ textAlign: { sm: 'center', md: 'left' } }}>
-                                <CssTextField label="Phone" variant="outlined" autoComplete="xyz123" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } }} />
-                            </Grid>
-                            <Grid size={12}>
-                                <CssTextField label="Email" variant="outlined" autoComplete="xyz123" sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} />
-                            </Grid>
-                            <Grid size={12}>
-                                <CssTextField label="Message" multiline rows={4} sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} />
-                            </Grid>
-                            <Grid size={12}>
-                                <Button variant="outlined" startIcon={<SendIcon />}>Send</Button>
-                            </Grid>
-                        </Grid>
-                    </form>
+                    <MyForm />
                 </Box>
             </Box>
         </Box>

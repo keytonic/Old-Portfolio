@@ -249,17 +249,37 @@ input[type="color"]::-webkit-color-swatch {
     color: var(--accent_color) !important;
 }
 
-.mySelect div
+
+.form_text
 {
-    height:28px !important;
-    min-width:50px !important;
-    border-color: var(--secondary_color) !important;
-    color: var(--third_color) !important;
+    background-color: rgb(from var(--third_color) r g b / 10%) !important;
+    border-radius: 8px;
 }
 
-.mySelect div div
+
+.mySelect
 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    height:28px !important;
+    
+}
+
+.mySelect div
+{
+    min-width:50px !important;
+}
+
+.mySelect fieldset
+{
+    border: 2px solid var(--secondary_color) !important;
+}
+
+.mySelect:hover fieldset
+{
+    border: 2px solid var(--third_color) !important;
+}
+
+.mySelect:active fieldset,
+.mySelect:focus fieldset
+{
+    border: 2px solid var(--accent_color) !important;
 }

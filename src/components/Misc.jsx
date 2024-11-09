@@ -2,22 +2,10 @@ import React, { useEffect, useState } from "react";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
-import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { alpha, styled } from '@mui/material/styles';
 
-const CssTextField = styled(TextField)({
 
-    '& label.Mui-focused': 
-    { 
-        color: 'var(--accent_color)', 
-    },
-    '& .MuiOutlinedInput-root': {
-        '& fieldset': { borderColor: 'var(--secondary_color)',},
-        '&:hover fieldset': { borderColor: 'var(--third_color)',},
-        '&.Mui-focused fieldset': { borderColor: 'var(--accent_color)',},
-    },
-});
 
 
 
@@ -29,6 +17,13 @@ export default function Misc()
     let secondary_color = localStorage.getItem("secondary_color");
     let third_color = localStorage.getItem("third_color");
     let accent_color = localStorage.getItem("accent_color");
+
+    let preset_name = localStorage.getItem("preset_name");
+
+    if(preset_name == null)
+    {
+        preset_name = "";
+    }
     
     if(primary_color == null)
     {
@@ -51,6 +46,8 @@ export default function Misc()
     const [SecondaryColor, setSecondaryColor] = useState(secondary_color);
     const [ThirdColor, setThirdColor] = useState(third_color);
     const [AccentColor, setAccentColor] = useState(accent_color);
+    const [PresetName, setPresetName] = useState(preset_name);
+
 
 
     function HandlePrimaryColor(event) {
@@ -92,6 +89,13 @@ export default function Misc()
                 document.documentElement.style.setProperty("--accent_color", a);
                 setAccentColor(a);
             }
+            if(p == null || s == null || t == null || a == null)
+            {
+                localStorage.setItem("preset_name", "");
+                setPresetName("");
+                //document.getElementsByTagName("input")[0].value = "";
+            }
+            
     }
 
     function setBackground(primary_color,secondary_color)
@@ -145,6 +149,9 @@ export default function Misc()
         {
             SetColor("#212227","#606060","#ebebeb","#39D353");
         }
+
+        localStorage.setItem("preset_name", event.target.value);
+        setPresetName(event.target.value);
     }
     
     useEffect(() => {
@@ -192,13 +199,25 @@ export default function Misc()
                                 <Typography variant="subtitle1" style={{ display: 'inline' }}>Presets: </Typography>
                         </Grid>
                         <Grid size={6} className="grid_cell_item">
-                            <CssTextField className="mySelect" select onChange={HandlePresets} defaultValue="" size="small" sx={{height:'28px'}}>
+
+
+                            <Select
+                                className="mySelect"
+                                labelId=""
+                                id=""
+                                value={PresetName}
+                                label=""
+                                onChange={HandlePresets}
+                            >
                                 <MenuItem className="MenuItemItem" value=""></MenuItem>
                                 <MenuItem className="MenuItemItem" value="Jedi">Jedi</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Ravens">Ravens</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Sith">Sith</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Xbox">Xbox</MenuItem>
-                            </CssTextField>
+                            </Select>
+
+
+
                         </Grid>
                     </Grid>
                 </Box>
