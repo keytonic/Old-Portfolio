@@ -11,77 +11,73 @@ import CloseIcon from '@mui/icons-material/Close';
 import Alert from '@mui/material/Alert';
 import Collapse from '@mui/material/Collapse';
 
+import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+
+
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+
+
+
 const CssTextField = styled(TextField)({
 
-    '& label.Mui-focused': 
-    { 
-        color: 'var(--accent_color)', 
+    '& label.Mui-focused':
+    {
+        color: 'var(--accent_color)',
     },
     '& .MuiOutlinedInput-root': {
-        '& fieldset': { borderColor: 'var(--secondary_color)',},
-        '&:hover fieldset': { borderColor: 'var(--third_color)',},
-        '&.Mui-focused fieldset': { borderColor: 'var(--accent_color)',},
+        '& fieldset': { borderColor: 'var(--secondary_color)', },
+        '&:hover fieldset': { borderColor: 'var(--third_color)', },
+        '&.Mui-focused fieldset': { borderColor: 'var(--accent_color)', },
     },
 });
 
-function MyForm()
-{
-    const [myEmail, setmyEmail] = useState({ name: "", phone: "", email: "", message: "", render:false });
+function MyForm() {
+    const [myEmail, setmyEmail] = useState({ name: "", phone: "", email: "", message: "", render: false });
     const [myAlert, setmyAlert] = useState({ open: false, message: "", severity: "" });
-    
-    function handleSubmit(event)
-    {    
-        if(myEmail.name == "" || myEmail.name.length < 3)
-        {
-            setmyAlert({open: true, severity: "error", message:"Please enter a valid name." });
+
+    function handleSubmit(event) {
+        if (myEmail.name == "" || myEmail.name.length < 3) {
+            setmyAlert({ open: true, severity: "error", message: "Please enter a valid name." });
         }
-        else if(myEmail.phone == "" || myEmail.phone.length < 10)
-        {
-            setmyAlert({open: true, severity: "error", message:"Please enter a valid phone number." });
+        else if (myEmail.phone == "" || myEmail.phone.length < 10) {
+            setmyAlert({ open: true, severity: "error", message: "Please enter a valid phone number." });
         }
-        else if(myEmail.email == "" || myEmail.email.length < 8 || myEmail.email.indexOf("@") == -1)
-        {
-            setmyAlert({open: true, severity: "error", message:"Please enter a valid email address." });
+        else if (myEmail.email == "" || myEmail.email.length < 8 || myEmail.email.indexOf("@") == -1) {
+            setmyAlert({ open: true, severity: "error", message: "Please enter a valid email address." });
         }
-        else if(myEmail.message == "")
-        {
-            setmyAlert({open: true, severity: "error", message:"Please enter a message." });
+        else if (myEmail.message == "") {
+            setmyAlert({ open: true, severity: "error", message: "Please enter a message." });
         }
-        else
-        {
+        else {
             var http = new XMLHttpRequest();
-        
-            http.onreadystatechange = function() 
-            {
-                if (this.readyState == 4 && this.status == 200) 
-                {
-                    setmyAlert({open: true, severity: "success", message:"Email sent!" });
-                    setmyEmail({name:"", email:"", phone:"", message: "" });
+
+            http.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    setmyAlert({ open: true, severity: "success", message: "Email sent!" });
+                    setmyEmail({ name: "", email: "", phone: "", message: "" });
                 }
             };
-        
+
             http.open('POST', 'post.php', true);
             http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             http.send(`name=${myEmail.name}&phone=${myEmail.phone}&email=${myEmail.email}&message=${myEmail.message}`);
         }
     }
 
-    function handleChange(event)
-    {
-        if(event.target.name == "fname")
-        {
+    function handleChange(event) {
+        if (event.target.name == "fname") {
             setmyEmail((previous) => { return { ...previous, name: event.target.value }; });
         }
-        else if(event.target.name == "fphone")
-        {
+        else if (event.target.name == "fphone") {
             setmyEmail((previous) => { return { ...previous, phone: event.target.value }; });
         }
-        else if(event.target.name == "femail")
-        {
+        else if (event.target.name == "femail") {
             setmyEmail((previous) => { return { ...previous, email: event.target.value }; });
         }
-        else if(event.target.name == "fmessage")
-        {
+        else if (event.target.name == "fmessage") {
             setmyEmail((previous) => { return { ...previous, message: event.target.value }; });
         }
     }
@@ -90,20 +86,20 @@ function MyForm()
         <form autoComplete="off" name="theForm">
             <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }} sx={{ margin: '20px', maxWidth: '600px' }}>
                 <Grid size={6} sx={{ textAlign: { sm: 'center', md: 'right' } }}>
-                    <CssTextField name="fname" value={myEmail.name} onChange={handleChange} className="form_text" label="Name" variant="outlined" autoComplete="xyz1234" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } }} />
+                    <CssTextField name="fname" value={myEmail.name} onChange={handleChange} className="form_text" label="Name" variant="outlined" autoComplete="off" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } }} />
                 </Grid>
                 <Grid size={6} sx={{ textAlign: { sm: 'center', md: 'left' } }}>
-                    <CssTextField name="fphone" value={myEmail.phone} onChange={handleChange} className="form_text" label="Phone" variant="outlined" autoComplete="xyz1234" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } }} />
+                    <CssTextField name="fphone" value={myEmail.phone} onChange={handleChange} className="form_text" label="Phone" variant="outlined" autoComplete="off" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } }} />
                 </Grid>
                 <Grid size={12}>
-                    <CssTextField name="femail" value={myEmail.email} onChange={handleChange} className="form_text" label="Email" variant="outlined" autoComplete="xyz1234" sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} />
+                    <CssTextField name="femail" value={myEmail.email} onChange={handleChange} className="form_text" label="Email" variant="outlined" autoComplete="off" sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} />
                 </Grid>
                 <Grid size={12}>
                     <CssTextField name="fmessage" value={myEmail.message} onChange={handleChange} className="form_text" label="Message" multiline rows={4} sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} />
                 </Grid>
-                <Grid size={12} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    
-                    <Collapse in={myAlert.open}sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} >
+                <Grid size={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
+                    <Collapse in={myAlert.open} sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} >
                         <Alert
                             severity={myAlert.severity}
                             action={
@@ -112,7 +108,7 @@ function MyForm()
                                 </IconButton>
                             }
                             sx={{ marginBottom: '24px', backgroundColor: 'var(--third_color) !important', color: 'var(--primary_color) !important' }}
-                            >
+                        >
                             {myAlert.message}
                         </Alert>
                     </Collapse>
@@ -123,40 +119,44 @@ function MyForm()
     );
 }
 
-export default function Contact() 
-{
+export default function Contact() {
     useEffect(() => {
         fixTrans();
     }, []);
 
     function fixTrans() {
-    
         let style = getComputedStyle(document.body);
         let third_color = localStorage.getItem("third_color");
-    
-        if (third_color == null) 
-        {
+
+        if (third_color == null) {
             third_color = style.getPropertyValue('--third_color');
         }
-    
-    
         let elements = document.getElementsByClassName('form_text');
-    
         for (let i = 0; i < elements.length; i++) {
             elements[i].style.setProperty("background-color", third_color + "1a", "important");
         }
     }
-
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
             <Box sx={{ padding: '20px' }} >
                 <Typography variant="h4" sx={{ display: 'inline' }}>Contact </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >Me</Typography>
                 <Typography variant="subtitle1">Feel free to reach out!</Typography>
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center' }} >
+            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
+                
+
                 <Box className="card trans shadow" sx={{ padding: '20px', border: '1px solid rgba(0, 0, 0, .125)', borderRadius: '16px' }} >
                     <MyForm />
                 </Box>
+
+
+                <Stack direction={{ xs: 'column', sm: 'row', md: 'row' }} spacing={{ xs: 2, sm: 4, md: 8 }} sx={{marginTop:'20px'}}>
+                    <Chip clickable target="_blank" component="a" href="tel:2629606309" icon={<PhoneOutlinedIcon sx={{ color:'var(--third_color) !important' }} />} label="(262) 960‑6309" variant="outlined" sx={{color:'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
+                    <Chip clickable target="_blank" component="a" href="mailto:keytonic@gmail.com" icon={<EmailOutlinedIcon sx={{ color:'var(--third_color) !important' }} />} label="keytonic@gmail.com" variant="outlined" sx={{color:'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
+                    <Chip clickable target="_blank" component="a" href="https://maps.app.goo.gl/CeAbx7PbjUDmCFJv7" icon={<LocationOnOutlinedIcon sx={{ color:'var(--third_color) !important' }} />} label="Seaford, VA" variant="outlined" sx={{color:'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
+                </Stack>
+
+
             </Box>
         </Box>
     );

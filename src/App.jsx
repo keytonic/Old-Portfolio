@@ -14,6 +14,25 @@ import Box from '@mui/material/Box';
 import { useEffect } from "react";
 
 
+
+/*
+TODO:
+buymeacoffee.com https://buymeacoffee.com/drootown
+Patreon
+crowdmade.com
+
+
+add options to change background and adjust transparencies
+
+
+*/
+
+
+
+
+
+
+
 function HandleLoad() {
 
     let style = getComputedStyle(document.body);
