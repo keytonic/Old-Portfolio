@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-
+import Menu from '@mui/material/Menu';
 
 
 
@@ -42,11 +42,30 @@ export default function Misc()
         accent_color = getComputedStyle(document.body).getPropertyValue('--accent_color');
     }
 
+    let accent_color_trans = accent_color + "26";
+    let primary_color_trans = primary_color + "70";
+
+
+    useEffect(() => {
+/*
+        let elements = document.getElementsByClassName('MuiList-root');
+
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.setProperty("background-color", primary_color + "70", "important");
+            elements[i].style.setProperty("backdrop-filter", "blur(8px)", "important");
+            elements[i].style.setProperty("border-radius", "18px", "important");
+        }
+*/
+    });
+
+
+
     const [PrimaryColor, setPrimaryColor] = useState(primary_color);
     const [SecondaryColor, setSecondaryColor] = useState(secondary_color);
     const [ThirdColor, setThirdColor] = useState(third_color);
     const [AccentColor, setAccentColor] = useState(accent_color);
     const [PresetName, setPresetName] = useState(preset_name);
+
 
 
 
@@ -109,7 +128,7 @@ export default function Misc()
         let encoded = window.btoa(background);
         document.body.style.backgroundImage = "url(data:image/svg+xml;base64," + encoded + ")";
     }
-
+/*
     function fixTrans(primary_color, accent_color) {
         let elements = document.getElementsByClassName('trans');
     
@@ -130,7 +149,7 @@ export default function Misc()
             elements[i].style.setProperty("box-shadow", "0 4px 5px 3px " + accent_color + "26", "important");
         }
     }
-
+*/
     function HandlePresets(event)
     {
         if(event.target.value == "Jedi")
@@ -157,11 +176,11 @@ export default function Misc()
     useEffect(() => {
         setBackground(PrimaryColor,SecondaryColor);
     }, [PrimaryColor,SecondaryColor]);
-
+/*
     useEffect(() => {
         fixTrans(PrimaryColor, AccentColor);
     }, [PrimaryColor,AccentColor]);
-
+*/
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
             <Box sx={{ padding: '20px' }} >
@@ -169,7 +188,17 @@ export default function Misc()
                 <Typography variant="subtitle1">Some fun customization options.</Typography>
             </Box>
             <Box sx={{ maxWidth: '1320px', display: 'flex', flexWrap: 'wrap', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' } }} >
-                <Box className="card trans shadow" sx={{padding: '20px',border: '1px solid rgba(0, 0, 0, .125)',borderRadius: '16px' }} >
+                <Box 
+                    className="card" 
+                    sx={{
+                        padding: '20px',
+                        border: '1px solid rgba(0, 0, 0, .125)',
+                        borderRadius: '16px',
+                        backgroundColor: primary_color_trans,
+                        backdropFilter: 'blur(8px) !important',
+                        boxShadow: '0 4px 5px 3px ' + accent_color_trans + ' !important',
+                    }} 
+                >
                     <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }} sx={{margin:'20px', maxWidth: '600px'}}>
                         <Grid size={6} className="grid_cell_item">
                                 <Typography variant="subtitle1" style={{ display: 'inline' }}>Primary Color: </Typography>
@@ -198,7 +227,7 @@ export default function Misc()
                         <Grid size={6} className="grid_cell_item">
                                 <Typography variant="subtitle1" style={{ display: 'inline' }}>Presets: </Typography>
                         </Grid>
-                        <Grid size={6} className="grid_cell_item">
+                        <Grid size={6} className="grid_cell_item" id="sel-menu">
 
 
                             <Select
@@ -208,12 +237,16 @@ export default function Misc()
                                 value={PresetName}
                                 label=""
                                 onChange={HandlePresets}
+                                keepMounted
                             >
+
+                           
                                 <MenuItem className="MenuItemItem" value=""></MenuItem>
                                 <MenuItem className="MenuItemItem" value="Jedi">Jedi</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Ravens">Ravens</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Sith">Sith</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Xbox">Xbox</MenuItem>
+                       
                             </Select>
 
 

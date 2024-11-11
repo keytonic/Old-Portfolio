@@ -29,6 +29,22 @@ function About()
         dark: [primary_color_trans, accent_color_trans],
     };
 
+    const selectLastHalfYear = contributions => {
+        const currentYear = new Date().getFullYear();
+        const currentMonth = new Date().getMonth();
+        const shownMonths = 6;
+      
+        return contributions.filter(activity => {
+          const date = new Date(activity.date);
+          const monthOfDay = date.getMonth();
+      
+          return (
+            date.getFullYear() === currentYear &&
+            monthOfDay > currentMonth - shownMonths &&
+            monthOfDay <= currentMonth
+          );
+        });
+      };
       
 
 
@@ -40,6 +56,7 @@ function About()
                 <Typography variant="caption" sx={{ display: 'flex', width: '100%' }}>@keytonic on GitHub</Typography>
                 <GitHubCalendar username="keytonic" theme={ghTheme} />
             </Box>
+
 
         </div>
     );

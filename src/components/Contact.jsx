@@ -119,7 +119,17 @@ function MyForm() {
     );
 }
 
-export default function Contact() {
+export default function Contact() 
+{
+    let primary_color = localStorage.getItem("primary_color");
+    let accent_color = localStorage.getItem("accent_color");
+
+    if(primary_color == null) primary_color = getComputedStyle(document.body).getPropertyValue('--primary_color');
+    if(primary_color == null) accent_color = getComputedStyle(document.body).getPropertyValue('--accent_color');
+    
+    let accent_color_trans = accent_color + "26";
+    let primary_color_trans = primary_color + "70";
+/*
     useEffect(() => {
         fixTrans();
     }, []);
@@ -135,7 +145,7 @@ export default function Contact() {
         for (let i = 0; i < elements.length; i++) {
             elements[i].style.setProperty("background-color", third_color + "1a", "important");
         }
-    }
+    }*/
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
             <Box sx={{ padding: '20px' }} >
@@ -145,7 +155,18 @@ export default function Contact() {
             <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
                 
 
-                <Box className="card trans shadow" sx={{ padding: '20px', border: '1px solid rgba(0, 0, 0, .125)', borderRadius: '16px' }} >
+                <Box 
+                    className="card" 
+                    sx={{ 
+                        padding: '20px', 
+                        border: '1px solid rgba(0, 0, 0, .125)', 
+                        borderRadius: '16px', 
+
+                        backgroundColor: primary_color_trans,
+                        backdropFilter: 'blur(8px) !important',
+                        boxShadow: '0 4px 5px 3px ' + accent_color_trans + ' !important',
+                    }} 
+                >
                     <MyForm />
                 </Box>
 

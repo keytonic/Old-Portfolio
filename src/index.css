@@ -10,24 +10,17 @@
 }
 
 
-.trans,
-.MuiMenu-paper {
+
+.MuiMenu-paper/*  misc page drop down menu is stupid*/
+{
+    background-color:unset !important;
     background-color: rgb(from var(--primary_color) r g b / 44%) !important;
     backdrop-filter: blur(8px) !important;
-}
-
-.shadow {
-    box-shadow: 0 4px 5px 3px rgb(from var(--accent_color) r g b / 15%) !important;
-}
-
-
-.MuiMenu-paper {
     border-radius: 18px !important;
+    
 }
 
-.MuiMenu-list {
-    xbackdrop-filter: blur(8px) !important;
-}
+
 
 .card
 {
@@ -150,14 +143,6 @@ a.main-menu:hover::before {
 .App {
     text-align: center;
 }
-
-/*
-.MuiMenu-paper {
-    xbackground-color: rgb(from var(--primary_color) r g b / 40%) !important;
-    border-bottom: 1px solid hsla(210, 14%, 28%, 0.3);
-    backdrop-filter: blur(8px);
-    border-radius: 8px;
-}*/
 
 
 

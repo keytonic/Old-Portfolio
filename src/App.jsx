@@ -66,17 +66,16 @@ function HandleLoad() {
         third_color = style.getPropertyValue('--third_color');
     }
 
-    fixTrans(primary_color, accent_color);
+    //fixTrans(primary_color, accent_color);
     setBackground(primary_color, secondary_color);
 }
 
-
+/*
 function fixTrans(primary_color, accent_color) {
     let elements = document.getElementsByClassName('trans');
 
     for (let i = 0; i < elements.length; i++) {
         elements[i].style.setProperty("background-color", primary_color + "70", "important");
-        //border: 1px solid rgb(from var(--primary_color) r g b / 25%) !important;/*40 */
         elements[i].style.setProperty("border", "1px solid " + primary_color + "40", "important");
     }
 
@@ -92,6 +91,8 @@ function fixTrans(primary_color, accent_color) {
         elements[i].style.setProperty("box-shadow", "0 4px 5px 3px " + accent_color + "26", "important");
     }
 }
+*/
+
 
 function setBackground(primary_color, secondary_color) {
     document.getElementById("svg_rec").setAttribute("fill", secondary_color);

@@ -10,7 +10,19 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-function Footer() {
+function Footer() 
+{
+
+    let primary_color = localStorage.getItem("primary_color");
+    let accent_color = localStorage.getItem("accent_color");
+
+    if(primary_color == null) primary_color = getComputedStyle(document.body).getPropertyValue('--primary_color');
+    if(primary_color == null) accent_color = getComputedStyle(document.body).getPropertyValue('--accent_color');
+    
+    let accent_color_trans = accent_color + "26";
+    let primary_color_trans = primary_color + "70";
+
+
     const handleClick = (event) => {
         if (event.currentTarget.id === 'gh') {
             //window.open('https://github.com/keytonic', '_blank');
@@ -33,7 +45,14 @@ function Footer() {
         }
     };
     return (
-        <AppBar className="trans" position="static" sx={{ borderTop: '1px solid hsla(210, 14%, 28%, 0.3)' }}>
+        <AppBar 
+            position="static" 
+            sx={{ 
+                borderTop: '1px solid hsla(210, 14%, 28%, 0.3)',
+                backgroundColor: primary_color_trans,
+                backdropFilter: 'blur(8px) !important',
+            }}
+        >
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
                 <Toolbar disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', flexWrap: 'wrap',marginTop: { xs: '10px', md: '0px' }, marginBottom: { xs: '10px', md: '0px' } }}>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
