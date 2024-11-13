@@ -1,24 +1,26 @@
 :root {
     /*https://coolors.co/0f1214-616161-39d353-d2d5dd-b8bacf*/
 
-    --primary_color: #212227;
-    --secondary_color: #606060;
-    --third_color: #ebebeb;
-    --accent_color: #39D353;
+    --primary_color: #231F20;
+    --secondary_color: #6B6B6B;
+    --third_color: #FFFFFF;
+    --accent_color: #30CE3B;
+
+    --trans: 78;
 
     --AppBar-background: var(--primary_color);
 }
 
 
-
-.MuiMenu-paper/*  misc page drop down menu is stupid*/
+/*
+.MuiMenu-paper
 {
     background-color:unset !important;
     background-color: rgb(from var(--primary_color) r g b / 44%) !important;
     backdrop-filter: blur(8px) !important;
     border-radius: 18px !important;
     
-}
+}*/
 
 
 

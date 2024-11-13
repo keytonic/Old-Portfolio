@@ -9,20 +9,15 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-
-function Footer() 
+import { useEffect } from "react";
+export default function Footer() 
 {
 
-    let primary_color = localStorage.getItem("primary_color");
-    let accent_color = localStorage.getItem("accent_color");
-
-    if(primary_color == null) primary_color = getComputedStyle(document.body).getPropertyValue('--primary_color');
-    if(primary_color == null) accent_color = getComputedStyle(document.body).getPropertyValue('--accent_color');
+    let style = getComputedStyle(document.body);
+    let trans = style.getPropertyValue('--trans');
+    let primary_color_trans = style.getPropertyValue('--primary_color') + trans;
+    let accent_color_trans = style.getPropertyValue('--accent_color') + "26";
     
-    let accent_color_trans = accent_color + "26";
-    let primary_color_trans = primary_color + "70";
-
-
     const handleClick = (event) => {
         if (event.currentTarget.id === 'gh') {
             //window.open('https://github.com/keytonic', '_blank');
@@ -44,12 +39,14 @@ function Footer()
             alert(event.currentTarget.id);
         }
     };
+
     return (
         <AppBar 
+            id="tehfoot"
             position="static" 
             sx={{ 
                 borderTop: '1px solid hsla(210, 14%, 28%, 0.3)',
-                backgroundColor: primary_color_trans,
+                backgroundColor: primary_color_trans + ' !important',
                 backdropFilter: 'blur(8px) !important',
             }}
         >
@@ -61,15 +58,14 @@ function Footer()
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
                         <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: 'center' }} >© 2024 AndrewTowner.com. All rights reserved.</Typography>
                     </Box>
-                    <Box sx={{color:'var(--accent_color)', width: { md: '33.3333%', xs: '100%' }, display: 'flex', justifyContent: { md: 'flex-end', xs: 'center' }, gap: '10px' }}>
-                        <IconButton onClick={handleClick} id="gh" className="socials" aria-label="GitHub" sx={{color:'var(--accent_color)'}}><GitHubIcon /></IconButton>
-                        <IconButton onClick={handleClick} id="fb" className="socials" aria-label="Facebook" sx={{color:'var(--accent_color)'}}><FacebookIcon /></IconButton>
-                        <IconButton onClick={handleClick} id="ig" className="socials" aria-label="Instagram" sx={{color:'var(--accent_color)'}}><InstagramIcon /></IconButton>
-                        <IconButton onClick={handleClick} id="li" className="socials" aria-label="LinkedIn" sx={{color:'var(--accent_color)'}}><LinkedInIcon /></IconButton>
+                    <Box sx={{width: { md: '33.3333%', xs: '100%' }, display: 'flex', justifyContent: { md: 'flex-end', xs: 'center' }, gap: '10px' }}>
+                        <IconButton onClick={handleClick} id="gh" className="socials" aria-label="GitHub"><GitHubIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="fb" className="socials" aria-label="Facebook"><FacebookIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="ig" className="socials" aria-label="Instagram"><InstagramIcon /></IconButton>
+                        <IconButton onClick={handleClick} id="li" className="socials" aria-label="LinkedIn"><LinkedInIcon /></IconButton>
                     </Box>
                 </Toolbar>
             </Container>
         </AppBar>
     );
 }
-export default Footer;

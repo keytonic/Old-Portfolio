@@ -16,31 +16,21 @@ import { useEffect } from "react";
 const pages = ['Home', 'Skills', 'Projects', 'About', 'Resume', 'Misc', 'Contact'];
 //const pages = ['Home', 'About', 'Projects', 'Resume'];
 
+export default function NavBar() {
 
-function NavBar() {
-
-
-    let primary_color = localStorage.getItem("primary_color");
-    let accent_color = localStorage.getItem("accent_color");
-
-    if (primary_color == null) primary_color = getComputedStyle(document.body).getPropertyValue('--primary_color');
-    if (primary_color == null) accent_color = getComputedStyle(document.body).getPropertyValue('--accent_color');
-
-    let accent_color_trans = accent_color + "26";
-    let primary_color_trans = primary_color + "70";
-
-
+    let style = getComputedStyle(document.body);
+    let trans = style.getPropertyValue('--trans');
+    let primary_color_trans = style.getPropertyValue('--primary_color') + trans;
+    let accent_color_trans = style.getPropertyValue('--accent_color') + "26";
+/*
     useEffect(() => {
-
         let elements = document.getElementsByClassName('MuiMenu-paper');
-
         for (let i = 0; i < elements.length; i++) {
-            elements[i].style.setProperty("background-color", primary_color + "70", "important");
+            elements[i].style.setProperty("background-color", primary_color_trans, "important");
             elements[i].style.setProperty("backdrop-filter", "blur(8px)", "important");
             elements[i].style.setProperty("border-radius", "18px", "important");
         }
-    });
-
+    });*/
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const handleOpenNavMenu = (event) => {
@@ -51,10 +41,11 @@ function NavBar() {
     };
     return (
         <AppBar
+            id="tehhead"
             position="sticky"
             sx={{
                 borderBottom: '1px solid hsla(210, 14%, 28%, 0.3)',
-                backgroundColor: primary_color_trans,
+                backgroundColor: primary_color_trans + ' !important',
                 backdropFilter: 'blur(8px) !important',
             }}
         >
@@ -63,7 +54,7 @@ function NavBar() {
 
                     {/*normal logo and text, far left*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-start', gap: '25px', alignItems: 'center' }}>
-                        <Logo color1="var(--accent_color)" color2="var(--primary_color)" height="50px" />
+                        <Logo color1='var(--accent_color)' color2='var(--primary_color)' height="50px" />
                         <Typography variant="h6" noWrap sx={{ color: 'var(--accent_color)' }}>Andrew Towner</Typography>
                     </Box>
                     {/*normal menu, far right*/}
@@ -88,7 +79,6 @@ function NavBar() {
                             />
                         </IconButton>
                         <Menu
-
                             id="menu-appbar"
                             anchorEl={anchorElNav}
                             anchorOrigin={{
@@ -104,6 +94,11 @@ function NavBar() {
                             onClose={handleCloseNavMenu}
                             sx={{
                                 display: { xs: 'block', md: 'none' },
+                                "& .MuiPaper-root": {
+                                    backgroundColor: primary_color_trans + ' !important',
+                                    backdropFilter: 'blur(8px) !important',
+                                    borderRadius: '18px !important',
+                                  }
                             }}
                         >
                             {pages.map((page, i) => (
@@ -121,7 +116,7 @@ function NavBar() {
                     </Box>
                     {/*small logo, center*/}
                     <Box sx={{ width: '33.3333%', display: { xs: 'flex', md: 'none' }, flexDirection: 'row', justifyContent: 'center' }}>
-                        <Logo color1="var(--accent_color)" color2="var(--primary_color)" height="50px" />
+                        <Logo color1='var(--accent_color)' color2='var(--primary_color)' height="50px" />
                     </Box>
                     <Box sx={{ width: '33.3333%', display: { xs: 'flex', md: 'none' }, flexDirection: 'row', justifyContent: 'flex-start' }}>
                     </Box>
@@ -133,4 +128,3 @@ function NavBar() {
         </AppBar>
     );
 }
-export default NavBar;

@@ -121,31 +121,11 @@ function MyForm() {
 
 export default function Contact() 
 {
-    let primary_color = localStorage.getItem("primary_color");
-    let accent_color = localStorage.getItem("accent_color");
+    let style = getComputedStyle(document.body);
+    let trans = style.getPropertyValue('--trans');
+    let primary_color_trans = style.getPropertyValue('--primary_color') + trans;
+    let accent_color_trans = style.getPropertyValue('--accent_color') + "26";
 
-    if(primary_color == null) primary_color = getComputedStyle(document.body).getPropertyValue('--primary_color');
-    if(primary_color == null) accent_color = getComputedStyle(document.body).getPropertyValue('--accent_color');
-    
-    let accent_color_trans = accent_color + "26";
-    let primary_color_trans = primary_color + "70";
-/*
-    useEffect(() => {
-        fixTrans();
-    }, []);
-
-    function fixTrans() {
-        let style = getComputedStyle(document.body);
-        let third_color = localStorage.getItem("third_color");
-
-        if (third_color == null) {
-            third_color = style.getPropertyValue('--third_color');
-        }
-        let elements = document.getElementsByClassName('form_text');
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].style.setProperty("background-color", third_color + "1a", "important");
-        }
-    }*/
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
             <Box sx={{ padding: '20px' }} >
@@ -153,31 +133,24 @@ export default function Contact()
                 <Typography variant="subtitle1">Feel free to reach out!</Typography>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
-                
-
                 <Box 
                     className="card" 
                     sx={{ 
                         padding: '20px', 
                         border: '1px solid rgba(0, 0, 0, .125)', 
                         borderRadius: '16px', 
-
-                        backgroundColor: primary_color_trans,
+                        backgroundColor: primary_color_trans + ' !important',
                         backdropFilter: 'blur(8px) !important',
                         boxShadow: '0 4px 5px 3px ' + accent_color_trans + ' !important',
                     }} 
                 >
                     <MyForm />
                 </Box>
-
-
                 <Stack direction={{ xs: 'column', sm: 'row', md: 'row' }} spacing={{ xs: 2, sm: 4, md: 8 }} sx={{marginTop:'20px'}}>
-                    <Chip clickable target="_blank" component="a" href="tel:2629606309" icon={<PhoneOutlinedIcon sx={{ color:'var(--third_color) !important' }} />} label="(262) 960‑6309" variant="outlined" sx={{color:'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
-                    <Chip clickable target="_blank" component="a" href="mailto:keytonic@gmail.com" icon={<EmailOutlinedIcon sx={{ color:'var(--third_color) !important' }} />} label="keytonic@gmail.com" variant="outlined" sx={{color:'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
-                    <Chip clickable target="_blank" component="a" href="https://maps.app.goo.gl/CeAbx7PbjUDmCFJv7" icon={<LocationOnOutlinedIcon sx={{ color:'var(--third_color) !important' }} />} label="Seaford, VA" variant="outlined" sx={{color:'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
+                    <Chip clickable target="_blank" component="a" href="tel:2629606309" icon={<PhoneOutlinedIcon sx={{ color: 'var(--third_color) !important' }} />} label="(262) 960‑6309" variant="outlined" sx={{color: 'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
+                    <Chip clickable target="_blank" component="a" href="mailto:keytonic@gmail.com" icon={<EmailOutlinedIcon sx={{ color: 'var(--third_color) !important' }} />} label="keytonic@gmail.com" variant="outlined" sx={{color: 'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
+                    <Chip clickable target="_blank" component="a" href="https://maps.app.goo.gl/CeAbx7PbjUDmCFJv7" icon={<LocationOnOutlinedIcon sx={{ color: 'var(--third_color) !important' }} />} label="Seaford, VA" variant="outlined" sx={{color: 'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
                 </Stack>
-
-
             </Box>
         </Box>
     );

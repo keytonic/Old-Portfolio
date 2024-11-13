@@ -1,10 +1,14 @@
 import React from "react";
 import Typography from '@mui/material/Typography';
 
-const Skills = () => (
-  <div>
-    <Typography variant="h4">Skills</Typography>
-  </div>
-);
+export default function Skills()
+{
+    let style = getComputedStyle(document.body);
 
-export default Skills;
+    
+    return (
+        <div>
+            <Typography variant="h4">Skills</Typography>
+        </div>
+    );
+}

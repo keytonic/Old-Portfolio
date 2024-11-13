@@ -23,7 +23,7 @@ crowdmade.com
 
 
 add options to change background and adjust transparencies
-
+fix hamburgermenu drop shadow color to be accent color
 
 */
 
@@ -31,91 +31,77 @@ add options to change background and adjust transparencies
 
 
 
-
-
-function HandleLoad() {
-
+export default function App() 
+{
     let style = getComputedStyle(document.body);
-    let primary_color = localStorage.getItem("primary_color");
-    let accent_color = localStorage.getItem("accent_color");
-    let secondary_color = localStorage.getItem("secondary_color");
-    let third_color = localStorage.getItem("third_color");
+    //let primary_color = localStorage.getItem("primary_color");
+    //let accent_color = localStorage.getItem("accent_color");
+    //let secondary_color = localStorage.getItem("secondary_color");
+    //let third_color = localStorage.getItem("third_color");
 
-    if (accent_color != null) {
-        document.documentElement.style.setProperty("--accent_color", accent_color);
+    
+
+    let colors = {
+        primary_color   : localStorage.getItem("primary_color"),
+        secondary_color : localStorage.getItem("secondary_color"), 
+        third_color     : localStorage.getItem("third_color"),
+        accent_color    : localStorage.getItem("accent_color")
+    };
+
+    if (colors.accent_color != null) {
+        document.documentElement.style.setProperty("--accent_color", colors.accent_color);
     }
     else {
-        accent_color = style.getPropertyValue('--accent_color');
+        colors.accent_color = style.getPropertyValue('--accent_color');
     }
-    if (primary_color != null) {
-        document.documentElement.style.setProperty("--primary_color", primary_color);
-    }
-    else {
-        primary_color = style.getPropertyValue('--primary_color');
-    }
-    if (secondary_color != null) {
-        document.documentElement.style.setProperty("--secondary_color", secondary_color);
+    if (colors.primary_color != null) {
+        document.documentElement.style.setProperty("--primary_color", colors.primary_color);
     }
     else {
-        secondary_color = style.getPropertyValue('--secondary_color');
+        colors.primary_color = style.getPropertyValue('--primary_color');
     }
-    if (third_color != null) {
-        document.documentElement.style.setProperty("--third_color", third_color);
+    if (colors.secondary_color != null) {
+        document.documentElement.style.setProperty("--secondary_color", colors.secondary_color);
     }
     else {
-        third_color = style.getPropertyValue('--third_color');
+        colors.secondary_color = style.getPropertyValue('--secondary_color');
+    }
+    if (colors.third_color != null) {
+        document.documentElement.style.setProperty("--third_color", colors.third_color);
+    }
+    else {
+        colors.third_color = style.getPropertyValue('--third_color');
     }
 
-    //fixTrans(primary_color, accent_color);
-    setBackground(primary_color, secondary_color);
-}
+    let trans = localStorage.getItem("trans");
 
-/*
-function fixTrans(primary_color, accent_color) {
-    let elements = document.getElementsByClassName('trans');
-
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].style.setProperty("background-color", primary_color + "70", "important");
-        elements[i].style.setProperty("border", "1px solid " + primary_color + "40", "important");
+    if (trans != null) {
+        document.documentElement.style.setProperty("--trans", trans);
+    }
+    else {
+        trans = style.getPropertyValue('--trans');
     }
 
-    elements = document.getElementsByClassName('MuiMenu-paper');
 
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].style.setProperty("background-color", primary_color + "70", "important");
+
+
+    function setBackground(primary_color, secondary_color) 
+    {
+        document.getElementById("svg_rec").setAttribute("fill", secondary_color);
+        document.getElementById("stop_zero").setAttribute("stop-color", secondary_color);
+        document.getElementById("stop_one").setAttribute("stop-color", primary_color);
+    
+        let svg = document.getElementById("svgBackground");
+        let background = '<svg id="svgBackground" xmlns="http://www.w3.org/2000/svg" width="100%">' + svg.innerHTML + '</svg>';
+        let encoded = window.btoa(background);
+        document.body.style.backgroundImage = "url(data:image/svg+xml;base64," + encoded + ")";
     }
 
-    elements = document.getElementsByClassName('shadow');
 
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].style.setProperty("box-shadow", "0 4px 5px 3px " + accent_color + "26", "important");
-    }
-}
-*/
-
-
-function setBackground(primary_color, secondary_color) {
-    document.getElementById("svg_rec").setAttribute("fill", secondary_color);
-    document.getElementById("stop_zero").setAttribute("stop-color", secondary_color);
-    document.getElementById("stop_one").setAttribute("stop-color", primary_color);
-
-    let svg = document.getElementById("svgBackground");
-    let background = '<svg id="svgBackground" xmlns="http://www.w3.org/2000/svg" width="100%">' + svg.innerHTML + '</svg>';
-    let encoded = window.btoa(background);
-    document.body.style.backgroundImage = "url(data:image/svg+xml;base64," + encoded + ")";
-}
+    setBackground(colors.primary_color, colors.secondary_color);
 
 
 
-function App() {
-
-
-    //window.onload = HandleLoad;
-    //window.onclick = HandleLoad;
-
-    useEffect(() => {
-        HandleLoad();
-    }, []);
 
     return (
         <BrowserRouter>
@@ -133,10 +119,8 @@ function App() {
                         <Route path="*" element={<Home />} />
                     </Routes>
                 </Box>
-                <Footer />
+                <Footer colors={colors}/>
             </div>
         </BrowserRouter>
     );
 }
-
-export default App;
