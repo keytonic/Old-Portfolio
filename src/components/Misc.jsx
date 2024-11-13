@@ -204,7 +204,10 @@ export default function Misc()
         {
             SetColor("#231F20","#6B6B6B","#FFFFFF","#30CE3B","78");
         }
-
+        else if(event.target.value == "Light")
+        {
+            SetColor("#FFEDC7","#949494","#000000","#9D0C0C","bf");
+        }
 
         localStorage.setItem("preset_name", event.target.value);
         setPresetName(event.target.value);
@@ -316,10 +319,11 @@ export default function Misc()
                            
                                 <MenuItem className="MenuItemItem" value=""></MenuItem>
                                 <MenuItem className="MenuItemItem" value="Jedi">Jedi</MenuItem>
+                                <MenuItem className="MenuItemItem" value="Light">Light</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Ravens">Ravens</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Sith">Sith</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Xbox">Xbox</MenuItem>
-                
+                                
                        
                             </Select>
 
