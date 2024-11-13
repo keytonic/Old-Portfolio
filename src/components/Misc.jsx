@@ -204,10 +204,6 @@ export default function Misc()
         {
             SetColor("#231F20","#6B6B6B","#FFFFFF","#30CE3B","78");
         }
-        else if(event.target.value == "Test")
-        {
-            SetColor("#000000","#85FFC7","#E6E6E6","#D19C1D","a6");
-        }
 
 
         localStorage.setItem("preset_name", event.target.value);
@@ -310,6 +306,11 @@ export default function Misc()
                                 value={PresetName}
                                 label=""
                                 onChange={HandlePresets}
+                                sx={{
+                                    "& .MuiSvgIcon-root": {
+                                    color: 'var(--secondary_color)',
+                                    }
+                                }}
                             >
 
                            
@@ -318,7 +319,7 @@ export default function Misc()
                                 <MenuItem className="MenuItemItem" value="Ravens">Ravens</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Sith">Sith</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Xbox">Xbox</MenuItem>
-                                <MenuItem className="MenuItemItem" value="Test">Test</MenuItem>
+                
                        
                             </Select>
 
