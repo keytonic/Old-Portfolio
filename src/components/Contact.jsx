@@ -35,6 +35,11 @@ const CssTextField = styled(TextField)({
 });
 
 function MyForm() {
+
+    let style = getComputedStyle(document.body);
+    let third_color_trans = style.getPropertyValue('--third_color') + "1a";
+
+    
     const [myEmail, setmyEmail] = useState({ name: "", phone: "", email: "", message: "", render: false });
     const [myAlert, setmyAlert] = useState({ open: false, message: "", severity: "" });
 
@@ -86,16 +91,16 @@ function MyForm() {
         <form autoComplete="off" name="theForm">
             <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }} sx={{ margin: '20px', maxWidth: '600px' }}>
                 <Grid size={6} sx={{ textAlign: { sm: 'center', md: 'right' } }}>
-                    <CssTextField name="fname" value={myEmail.name} onChange={handleChange} className="form_text" label="Name" variant="outlined" autoComplete="off" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } }} />
+                    <CssTextField name="fname" value={myEmail.name} onChange={handleChange} className="form_text" label="Name" variant="outlined" autoComplete="off" sx={{ width: { xs: '213px', sm: '350px', md: '213px' },backgroundColor: third_color_trans + ' !important' }} />
                 </Grid>
                 <Grid size={6} sx={{ textAlign: { sm: 'center', md: 'left' } }}>
-                    <CssTextField name="fphone" value={myEmail.phone} onChange={handleChange} className="form_text" label="Phone" variant="outlined" autoComplete="off" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } }} />
+                    <CssTextField name="fphone" value={myEmail.phone} onChange={handleChange} className="form_text" label="Phone" variant="outlined" autoComplete="off" sx={{ width: { xs: '213px', sm: '350px', md: '213px' } ,backgroundColor: third_color_trans + ' !important'}} />
                 </Grid>
                 <Grid size={12}>
-                    <CssTextField name="femail" value={myEmail.email} onChange={handleChange} className="form_text" label="Email" variant="outlined" autoComplete="off" sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} />
+                    <CssTextField name="femail" value={myEmail.email} onChange={handleChange} className="form_text" label="Email" variant="outlined" autoComplete="off" sx={{ width: { xs: '213px', sm: '350px', md: '450px' },backgroundColor: third_color_trans + ' !important' }} />
                 </Grid>
                 <Grid size={12}>
-                    <CssTextField name="fmessage" value={myEmail.message} onChange={handleChange} className="form_text" label="Message" multiline rows={4} sx={{ width: { xs: '213px', sm: '350px', md: '450px' } }} />
+                    <CssTextField name="fmessage" value={myEmail.message} onChange={handleChange} className="form_text" label="Message" multiline rows={4} sx={{ width: { xs: '213px', sm: '350px', md: '450px' },backgroundColor: third_color_trans + ' !important' }} />
                 </Grid>
                 <Grid size={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
