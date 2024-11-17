@@ -129,8 +129,8 @@ export default function Contact()
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
             <Box sx={{ padding: '20px' }} >
-                <Typography variant="h4" sx={{ display: 'inline' }}>Contact </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >Me</Typography>
-                <Typography variant="subtitle1">Feel free to reach out!</Typography>
+                <Typography variant="h4" sx={{ display: 'inline' , textShadow: '2px 2px var(--primary_color) !important'}}>Contact </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >Me</Typography>
+                <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Feel free to reach out!</Typography>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
                 <Box 
@@ -140,16 +140,16 @@ export default function Contact()
                         border: '1px solid rgba(0, 0, 0, .125)', 
                         borderRadius: '16px', 
                         backgroundColor: primary_color_trans + ' !important',
-                        backdropFilter: 'blur(8px) !important',
+                        backdropFilter: 'blur(2px) !important',
                         boxShadow: '0 4px 5px 3px ' + accent_color_trans + ' !important',
                     }} 
                 >
                     <MyForm />
                 </Box>
                 <Stack direction={{ xs: 'column', sm: 'row', md: 'row' }} spacing={{ xs: 2, sm: 4, md: 8 }} sx={{marginTop:'20px'}}>
-                    <Chip clickable target="_blank" component="a" href="tel:2629606309" icon={<PhoneOutlinedIcon sx={{ color: 'var(--third_color) !important' }} />} label="(262) 960‑6309" variant="outlined" sx={{color: 'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
-                    <Chip clickable target="_blank" component="a" href="mailto:keytonic@gmail.com" icon={<EmailOutlinedIcon sx={{ color: 'var(--third_color) !important' }} />} label="keytonic@gmail.com" variant="outlined" sx={{color: 'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
-                    <Chip clickable target="_blank" component="a" href="https://maps.app.goo.gl/CeAbx7PbjUDmCFJv7" icon={<LocationOnOutlinedIcon sx={{ color: 'var(--third_color) !important' }} />} label="Seaford, VA" variant="outlined" sx={{color: 'var(--third_color) !important',border: '0px solid var(--third_color) !important'}} />
+                    <Chip clickable target="_blank" component="a" href="tel:2629606309" icon={<PhoneOutlinedIcon sx={{ color: 'var(--third_color) !important', }} />} label="(262) 960‑6309" variant="outlined" sx={{color: 'var(--third_color) !important',border: '0px solid var(--third_color) !important',textShadow: '2px 2px var(--primary_color) !important'}} />
+                    <Chip clickable target="_blank" component="a" href="mailto:keytonic@gmail.com" icon={<EmailOutlinedIcon sx={{ color: 'var(--third_color) !important' }} />} label="keytonic@gmail.com" variant="outlined" sx={{color: 'var(--third_color) !important',border: '0px solid var(--third_color) !important',textShadow: '2px 2px var(--primary_color) !important'}} />
+                    <Chip clickable target="_blank" component="a" href="https://maps.app.goo.gl/CeAbx7PbjUDmCFJv7" icon={<LocationOnOutlinedIcon sx={{ color: 'var(--third_color) !important' }} />} label="Seaford, VA" variant="outlined" sx={{color: 'var(--third_color) !important',border: '0px solid var(--third_color) !important',textShadow: '2px 2px var(--primary_color) !important'}} />
                 </Stack>
             </Box>
         </Box>

@@ -47,16 +47,16 @@ export default function Footer()
             sx={{ 
                 borderTop: '1px solid hsla(210, 14%, 28%, 0.3)',
                 backgroundColor: primary_color_trans + ' !important',
-                backdropFilter: 'blur(8px) !important',
+                backdropFilter: 'blur(2px) !important',
             }}
         >
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
                 <Toolbar disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', flexWrap: 'wrap',marginTop: { xs: '10px', md: '0px' }, marginBottom: { xs: '10px', md: '0px' } }}>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
-                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: { md: 'flex-start', xs: 'center' } }} > Designed and Developed by Andrew Towner. </Typography>
+                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: { md: 'flex-start', xs: 'center',textShadow: '2px 2px var(--primary_color) !important' } }} > Designed and Developed by Andrew Towner. </Typography>
                     </Box>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
-                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: 'center' }} >© 2024 AndrewTowner.com. All rights reserved.</Typography>
+                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: 'center',textShadow: '2px 2px var(--primary_color) !important' }} >© 2024 AndrewTowner.com. All rights reserved.</Typography>
                     </Box>
                     <Box sx={{width: { md: '33.3333%', xs: '100%' }, display: 'flex', justifyContent: { md: 'flex-end', xs: 'center' }, gap: '10px' }}>
                         <IconButton onClick={handleClick} id="gh" className="socials" aria-label="GitHub"><GitHubIcon /></IconButton>

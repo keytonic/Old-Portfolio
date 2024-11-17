@@ -8,7 +8,8 @@ import Menu from '@mui/material/Menu';
 import Slider from '@mui/material/Slider';
 import InputBase from '@mui/material/InputBase';
 import { styled } from '@mui/material/styles';
-
+import Backgrounds from './Backgrounds';
+import ReactDOMServer from 'react-dom/server';
 
 
 
@@ -98,11 +99,22 @@ export default function Misc()
         preset_name = "";
     }
 
+    let background_name = localStorage.getItem("background_name");
+
+    if(background_name == null)
+    {
+        background_name = "triangles";
+    }
+
+
+
+
     const [PrimaryColor, setPrimaryColor] = useState(primary_color);
     const [SecondaryColor, setSecondaryColor] = useState(secondary_color);
     const [ThirdColor, setThirdColor] = useState(third_color);
     const [AccentColor, setAccentColor] = useState(accent_color);
     const [PresetName, setPresetName] = useState(preset_name);
+    const [BackgroundName, setBackgroundName] = useState(background_name);
     const [mytrans, setTrans] = useState(trans);
 
     function HandlePrimaryColor(event) {
@@ -174,8 +186,9 @@ export default function Misc()
             //document.getElementById("tehfoot").style.setProperty("background-color", PrimaryColor + mytrans, "important");
     }
 
-    function setBackground(primary_color,secondary_color)
+    function setBackground(primary_color,secondary_color,third_color,accent_color,background_name)
     {
+        /*
         document.getElementById("svg_rec").setAttribute("fill",secondary_color);
         document.getElementById("stop_zero").setAttribute("stop-color",secondary_color);
         document.getElementById("stop_one").setAttribute("stop-color",primary_color);
@@ -184,29 +197,57 @@ export default function Misc()
         let background = '<svg id="svgBackground" xmlns="http://www.w3.org/2000/svg" width="100%">' + svg.innerHTML + '</svg>';
         let encoded = window.btoa(background);
         document.body.style.backgroundImage = "url(data:image/svg+xml;base64," + encoded + ")";
+        */
+        
+
+        const htmlString = ReactDOMServer.renderToString(<Backgrounds primary_color={primary_color} secondary_color={secondary_color} third_color={third_color} accent_color={accent_color} name={background_name}/>);
+        let encoded = window.btoa(htmlString);
+        document.body.style.backgroundImage = "url(data:image/svg+xml;base64," + encoded + ")";
+  
     }
+
+    function HandleBackgrounds(event)
+    {
+        
+        setBackgroundName(event.target.value);
+        localStorage.setItem("background_name", event.target.value);
+        
+        setPresetName("");
+        localStorage.setItem("preset_name", "");
+    }
+
 
     function HandlePresets(event)
     {
         if(event.target.value == "Jedi")
         {
             SetColor("#212227","#606060","#ebebeb","#4b8cc8","a6");
+            setBackgroundName("republic");
+            localStorage.setItem("background_name", "republic");
         }
         else if(event.target.value == "Ravens")
         {
             SetColor("#000000","#241773","#ebebeb","#9E7C0C","66");
+            setBackgroundName("diamonds");
+            localStorage.setItem("background_name", "diamonds");
         }
         else if(event.target.value == "Sith")
         {
             SetColor("#000000","#454545","#dfdfdf","#ff0000","33");
+            setBackgroundName("empire");
+            localStorage.setItem("background_name", "empire");
         }
         else if(event.target.value == "Xbox")
         {
             SetColor("#231F20","#6B6B6B","#FFFFFF","#30CE3B","78");
+            setBackgroundName("triangles");
+            localStorage.setItem("background_name", "triangles");
         }
         else if(event.target.value == "Light")
         {
             SetColor("#FFEDC7","#949494","#000000","#9D0C0C","bf");
+            setBackgroundName("clean");
+            localStorage.setItem("background_name", "clean");
         }
 
         localStorage.setItem("preset_name", event.target.value);
@@ -214,8 +255,8 @@ export default function Misc()
     }
     
     useEffect(() => {
-        setBackground(PrimaryColor,SecondaryColor);
-    }, [PrimaryColor,SecondaryColor]);
+        setBackground(PrimaryColor,SecondaryColor,ThirdColor,AccentColor,BackgroundName);
+    }, [PrimaryColor,SecondaryColor,ThirdColor,AccentColor,BackgroundName]);
 
  
     useEffect(() => {
@@ -238,8 +279,8 @@ export default function Misc()
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
             <Box sx={{ padding: '20px' }} >
-                <Typography variant="h4" sx={{ display: 'inline' }}>Random </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color) !important', textShadow: '2px 2px var(--primary_color) !important' }} >Stuff</Typography>
-                <Typography variant="subtitle1">Some fun customization options.</Typography>
+                <Typography variant="h4" sx={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>Random </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color) !important', textShadow: '2px 2px var(--primary_color) !important' }} >Stuff</Typography>
+                <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Some fun customization options.</Typography>
             </Box>
             <Box sx={{ maxWidth: '1320px', display: 'flex', flexWrap: 'wrap', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' } }} >
                 <Box 
@@ -249,43 +290,96 @@ export default function Misc()
                         border: '1px solid rgba(0, 0, 0, .125)',
                         borderRadius: '16px',
                         backgroundColor: primary_color_trans + ' !important',
-                        backdropFilter: 'blur(8px) !important',
+                        backdropFilter: 'blur(2px) !important',
                         boxShadow: '0 4px 5px 3px ' + accent_color_trans + ' !important',
                     }} 
                 >
                     <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }} sx={{margin:'20px', maxWidth: '600px'}}>
                         <Grid size={6} className="grid_cell_item">
-                                <Typography variant="subtitle1" style={{ display: 'inline' }}>Primary Color: </Typography>
+                                <Typography variant="subtitle1" style={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>Primary Color: </Typography>
                         </Grid>
                         <Grid size={6} className="grid_cell_item">
                                 <input onInput={HandlePrimaryColor} className="color_picker" style={{ display: 'inline', border: '2px solid var(--secondary_color)' }} type="color" value={PrimaryColor} />
                         </Grid>
+
                         <Grid size={6} className="grid_cell_item">
-                            <Typography variant="subtitle1" style={{ display: 'inline' }}>Transparency: </Typography>
+                                <Typography variant="subtitle1" style={{ display: 'inline' ,textShadow: '2px 2px var(--primary_color) !important'}}>Secondary Color: </Typography>
                         </Grid>
                         <Grid size={6} className="grid_cell_item">
-                            <Slider value={sliderVal} onChange={HandleTrans} valueLabelDisplay="auto" sx={{ width: '50%', color:'var(--secondary_color)' }} />
+                                <input onInput={HandleSecondaryColor} className="color_picker" style={{ display: 'inline', border: '2px solid var(--primary_color)' }} type="color" value={SecondaryColor} />
                         </Grid>
                         <Grid size={6} className="grid_cell_item">
-                                <Typography variant="subtitle1" style={{ display: 'inline' }}>Secondary Color: </Typography>
-                        </Grid>
-                        <Grid size={6} className="grid_cell_item">
-                                <input onInput={HandleSecondaryColor} className="color_picker" style={{ display: 'inline', border: '2px solid var(--secondary_color)' }} type="color" value={SecondaryColor} />
-                        </Grid>
-                        <Grid size={6} className="grid_cell_item">
-                                <Typography variant="subtitle1" style={{ display: 'inline' }}>Third Color: </Typography>
+                                <Typography variant="subtitle1" style={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>Third Color: </Typography>
                         </Grid>
                         <Grid size={6} className="grid_cell_item">
                                 <input onInput={HandleThirdColor} className="color_picker" style={{ display: 'inline', border: '2px solid var(--secondary_color)' }} type="color" value={ThirdColor} />
                         </Grid>
                         <Grid size={6} className="grid_cell_item">
-                                <Typography variant="subtitle1" style={{ display: 'inline' }}>Accent Color: </Typography>
+                                <Typography variant="subtitle1" style={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>Accent Color: </Typography>
                         </Grid>
                         <Grid size={6} className="grid_cell_item">
                                 <input onInput={HandleAccentColor} className="color_picker" style={{ display: 'inline', border: '2px solid var(--secondary_color)' }} type="color" value={AccentColor} />
                         </Grid>
+
                         <Grid size={6} className="grid_cell_item">
-                                <Typography variant="subtitle1" style={{ display: 'inline' }}>Presets: </Typography>
+                            <Typography variant="subtitle1" style={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>Transparency: </Typography>
+                        </Grid>
+                        <Grid size={6} className="grid_cell_item">
+                            <Slider value={sliderVal} onChange={HandleTrans} valueLabelDisplay="auto" sx={{ width: '50%', color:'var(--secondary_color)' }} />
+                        </Grid>
+
+                        <Grid size={6} className="grid_cell_item" >
+                            <Typography variant="subtitle1" style={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>Background: </Typography>
+                        </Grid>
+                        <Grid size={6} className="grid_cell_item" >
+
+
+                        <Select
+                                className="mySelect"
+                                inputProps={{
+                                    MenuProps: {
+                                        PaperProps: {
+                                            sx: {
+                                                backgroundColor: primary_color_trans + ' !important',
+                                                backdropFilter: 'blur(2px) !important',
+                                                borderRadius: '18px !important',
+                                            }
+                                        }
+
+                                    }
+                                }}
+                                labelId=""
+                                id="tehselect"
+                                value={BackgroundName}
+                                label=""
+                                onChange={HandleBackgrounds}
+                                sx={{
+                                    "& .MuiSvgIcon-root": {
+                                    color: 'var(--secondary_color)',
+                                    }
+                                }}
+                            >
+                            
+                                <MenuItem className="MenuItemItem" value="triangles">Triangles</MenuItem>
+                                <MenuItem className="MenuItemItem" value="diamonds">Diamonds</MenuItem>
+                                
+                                <MenuItem className="MenuItemItem" value="empire">Empire</MenuItem>
+                                <MenuItem className="MenuItemItem" value="republic">Republic</MenuItem>
+                                <MenuItem className="MenuItemItem" value="clean">Clean</MenuItem>
+                                
+                            </Select>
+
+
+
+
+
+                        </Grid>
+
+
+
+
+                        <Grid size={6} className="grid_cell_item">
+                                <Typography variant="subtitle1" style={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>Theme Presets: </Typography>
                         </Grid>
                         <Grid size={6} className="grid_cell_item" id="sel-menu">
 
@@ -297,7 +391,7 @@ export default function Misc()
                                         PaperProps: {
                                             sx: {
                                                 backgroundColor: primary_color_trans + ' !important',
-                                                backdropFilter: 'blur(8px) !important',
+                                                backdropFilter: 'blur(2px) !important',
                                                 borderRadius: '18px !important',
                                             }
                                         }
@@ -317,7 +411,7 @@ export default function Misc()
                             >
 
                            
-                                <MenuItem className="MenuItemItem" value=""></MenuItem>
+                                
                                 <MenuItem className="MenuItemItem" value="Jedi">Jedi</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Light">Light</MenuItem>
                                 <MenuItem className="MenuItemItem" value="Ravens">Ravens</MenuItem>
@@ -330,6 +424,10 @@ export default function Misc()
 
 
                         </Grid>
+
+
+
+
                     </Grid>
                 </Box>
             </Box>

@@ -16,9 +16,9 @@ export default function Home()
             <Box  sx={{ maxWidth: '1320px', display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', width: '100%' }} >
                 <Box sx={{padding: '20px 0 20px 0',display: 'flex', width:'100%', flexDirection: 'column', justifyContent: 'center',alignItems: 'center'}}>
                     <Box sx={{textAlign: { xs:'center',md:'left'}}}>
-                        <Typography variant="h4" sx={{margin:'0 0 25px 0'}}>Hello there!</Typography>
-                        <Typography variant="h4" sx={{ display: 'inline',margin:'25px 0 25px 0px'}}>I'm </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px ' + 'var(--primary_color)'}} >Andrew Towner</Typography>
-                        <Typography variant="h4" sx={{margin:'25px 0 0 0'}}><Type /></Typography>
+                        <Typography variant="h4" sx={{margin:'0 0 25px 0',textShadow: '2px 2px var(--primary_color) !important'}}>Hello there!</Typography>
+                        <Typography variant="h4" sx={{ display: 'inline',margin:'25px 0 25px 0px',textShadow: '2px 2px var(--primary_color) !important'}}>I'm </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px ' + 'var(--primary_color)'}} >Andrew Towner</Typography>
+                        <Typography variant="h4" sx={{margin:'25px 0 0 0',textShadow: '2px 2px var(--primary_color) !important'}}><Type /></Typography>
                     </Box>
                 </Box>
                 <Box sx={{padding: '20px 0 20px 0', display: 'flex', width:'100%',justifyContent: 'center'}}>
@@ -33,7 +33,7 @@ export default function Home()
                             border: '1px solid rgba(0, 0, 0, .125)',
                             borderRadius: '16px',
                             backgroundColor: primary_color_trans + ' !important',
-                            backdropFilter: 'blur(8px) !important',
+                            backdropFilter: 'blur(2px) !important',
                             boxShadow: '0 4px 5px 3px ' + accent_color_trans + ' !important',
                         }}
                     >

@@ -12,7 +12,8 @@ import Misc from "./components/Misc";
 import Box from '@mui/material/Box';
 
 import { useEffect } from "react";
-
+import Backgrounds from './components/Backgrounds';
+import ReactDOMServer from 'react-dom/server';
 
 
 /*
@@ -82,11 +83,17 @@ export default function App()
         trans = style.getPropertyValue('--trans');
     }
 
+    let background_name = localStorage.getItem("background_name");
 
-
-
-    function setBackground(primary_color, secondary_color) 
+    if(background_name == null)
     {
+        background_name = "triangles";
+    }
+
+
+    function setBackground(primary_color, secondary_color,third_color,accent_color,background_name) 
+    {
+        /*
         document.getElementById("svg_rec").setAttribute("fill", secondary_color);
         document.getElementById("stop_zero").setAttribute("stop-color", secondary_color);
         document.getElementById("stop_one").setAttribute("stop-color", primary_color);
@@ -95,10 +102,15 @@ export default function App()
         let background = '<svg id="svgBackground" xmlns="http://www.w3.org/2000/svg" width="100%">' + svg.innerHTML + '</svg>';
         let encoded = window.btoa(background);
         document.body.style.backgroundImage = "url(data:image/svg+xml;base64," + encoded + ")";
+        */
+
+        const htmlString = ReactDOMServer.renderToString(<Backgrounds primary_color={primary_color} secondary_color={secondary_color} third_color={third_color} accent_color={accent_color} name={background_name} />);
+        let encoded = window.btoa(htmlString);
+        document.body.style.backgroundImage = "url(data:image/svg+xml;base64," + encoded + ")";
     }
 
 
-    setBackground(colors.primary_color, colors.secondary_color);
+    setBackground(colors.primary_color, colors.secondary_color,colors.third_color,colors.accent_color,background_name);
 
 
 

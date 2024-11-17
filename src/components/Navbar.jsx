@@ -46,7 +46,7 @@ export default function NavBar() {
             sx={{
                 borderBottom: '1px solid hsla(210, 14%, 28%, 0.3)',
                 backgroundColor: primary_color_trans + ' !important',
-                backdropFilter: 'blur(8px) !important',
+                backdropFilter: 'blur(2px) !important',
             }}
         >
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
@@ -55,7 +55,7 @@ export default function NavBar() {
                     {/*normal logo and text, far left*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-start', gap: '25px', alignItems: 'center' }}>
                         <Logo color1='var(--accent_color)' color2='var(--primary_color)' height="50px" />
-                        <Typography variant="h6" noWrap sx={{ color: 'var(--accent_color)' }}>Andrew Towner</Typography>
+                        <Typography variant="h6" noWrap sx={{ color: 'var(--accent_color)',textShadow: '2px 2px var(--primary_color) !important' }}>Andrew Towner</Typography>
                     </Box>
                     {/*normal menu, far right*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-end', gap: '25px' }}>
@@ -96,7 +96,7 @@ export default function NavBar() {
                                 display: { xs: 'block', md: 'none' },
                                 "& .MuiPaper-root": {
                                     backgroundColor: primary_color_trans + ' !important',
-                                    backdropFilter: 'blur(8px) !important',
+                                    backdropFilter: 'blur(2px) !important',
                                     borderRadius: '18px !important',
                                   }
                             }}

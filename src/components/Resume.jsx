@@ -8,7 +8,7 @@ export default function Resume()
 
     return (
         <div>
-            <Typography variant="h4">Resume</Typography>
+            <Typography variant="h4" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Resume</Typography>
         </div>
     );
 }

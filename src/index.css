@@ -87,6 +87,11 @@ a.hamburger-menu {
     color: var(--third_color)
 }
 
+.main-menu
+{
+    text-shadow: 2px 2px var(--primary_color) !important;
+}
+
 a.main-menu {
     display: flex;
     justify-content: center;
