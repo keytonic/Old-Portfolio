@@ -11,6 +11,17 @@
     --AppBar-background: var(--primary_color);
 }
 
+a.intext
+{ 
+    color: var(--accent_color);
+    font-style: italic;
+    text-decoration-line: none;
+
+}
+
+
+
+
 
 /*
 .MuiMenu-paper

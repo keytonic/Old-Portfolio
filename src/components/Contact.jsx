@@ -137,7 +137,7 @@ export default function Contact()
                 <Typography variant="h4" sx={{ display: 'inline' , textShadow: '2px 2px var(--primary_color) !important'}}>Contact </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >Me</Typography>
                 <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Feel free to reach out!</Typography>
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
+            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',margin: '20px' }} >
                 <Box 
                     className="card" 
                     sx={{ 

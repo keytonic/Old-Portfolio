@@ -83,7 +83,7 @@ export default function Skills()
                 </Box>
 
 
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: '20px' }} >
                         <Box 
                             className="card" 
                             sx={{ 
@@ -120,7 +120,7 @@ export default function Skills()
                     <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Subtitle blah blah blah</Typography>
                 </Box>
 
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: '20px' }} >
                         <Box 
                             className="card" 
                             sx={{ 
@@ -155,7 +155,7 @@ export default function Skills()
                 </Box>
 
 
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: '20px' }} >
                         <Box 
                             className="card" 
                             sx={{ 

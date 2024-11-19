@@ -282,7 +282,7 @@ export default function Misc()
                 <Typography variant="h4" sx={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>Random </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color) !important', textShadow: '2px 2px var(--primary_color) !important' }} >Stuff</Typography>
                 <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Some fun customization options.</Typography>
             </Box>
-            <Box sx={{ maxWidth: '1320px', display: 'flex', flexWrap: 'wrap', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' } }} >
+            <Box sx={{ maxWidth: '1320px', display: 'flex', flexWrap: 'wrap', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' },margin: '20px' }} >
                 <Box 
                     className="card" 
                     sx={{
