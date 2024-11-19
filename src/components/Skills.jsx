@@ -137,7 +137,7 @@ export default function Skills()
                             }} 
                         >
                             <Icons show="vscode" link="https://code.visualstudio.com" />
-                            <Icons show="github" link="https://github.com" />
+                            <Icons show="git" link="https://git-scm.com" />
                             <Icons show="nodejs" link="https://nodejs.org" />
                             <Icons show="firebase" link="https://firebase.google.com/" />
                             <Icons show="linux" link="https://www.kernel.org" />

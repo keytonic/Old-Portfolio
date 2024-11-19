@@ -157,7 +157,7 @@ export default function Icons(props)
             </a>
         );
     }
-    else if(props.show == 'github')
+    else if(props.show == 'git')
     {
         return (
             <a href={props.link} target="_blank">
