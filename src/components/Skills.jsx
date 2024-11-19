@@ -24,7 +24,7 @@ export default function Skills()
 
         if (xs == false)
         {
-            countStr = '{{count}} activities in the last six months'
+            countStr = '{{count}} activities in the last four months'
         }
         else if (sm == false)
         {
@@ -44,7 +44,7 @@ export default function Skills()
 
         if (xs == false)
         {
-            shownMonths = 6;
+            shownMonths = 4;
         }
         else if (sm == false)
         {
@@ -95,9 +95,11 @@ export default function Skills()
                                 boxShadow: '0 4px 5px 3px ' + accent_color_trans + ' !important',
                                 display: 'flex',
                                 gap: '20px',
+                                flexWrap: 'wrap',
+                                justifyContent: 'center'
                             }} 
                         >
-                            <Icons show="cpp" link="https://isocpp.org" />
+                            
                             <Icons show="react" link="https://react.dev" />
                             <Icons show="html" link="https://www.w3schools.com/html" />
                             <Icons show="js" link="https://www.w3schools.com/js" />
@@ -105,6 +107,7 @@ export default function Skills()
                             <Icons show="java" link="https://www.java.com" />
                             <Icons show="php" link="https://www.php.net" />
                             <Icons show="mysql" link="https://www.mysql.com" />
+                            <Icons show="cpp" link="https://isocpp.org" />
                             <Icons show="python" link="https://www.python.org" />
                         </Box>
                     </Box>
@@ -127,9 +130,22 @@ export default function Skills()
                                 backgroundColor: primary_color_trans + ' !important',
                                 backdropFilter: 'blur(2px) !important',
                                 boxShadow: '0 4px 5px 3px ' + accent_color_trans + ' !important',
+                                display: 'flex',
+                                gap: '20px',
+                                flexWrap: 'wrap',
+                                justifyContent: 'center'
                             }} 
                         >
-                            blah
+                            <Icons show="vscode" link="https://code.visualstudio.com" />
+                            <Icons show="github" link="https://github.com" />
+                            <Icons show="nodejs" link="https://nodejs.org" />
+                            <Icons show="firebase" link="https://firebase.google.com/" />
+                            <Icons show="linux" link="https://www.kernel.org" />
+                            <Icons show="mxlinux" link="https://mxlinux.org" />
+                            <Icons show="photoshop" link="https://www.adobe.com/apps/all/all-platforms/pdp/photoshop" />
+                            <Icons show="gimp" link="https://www.gimp.org" />
+                            <Icons show="classicpress" link="https://www.classicpress.net" />
+
                         </Box>
                     </Box>
 

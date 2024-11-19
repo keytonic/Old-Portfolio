@@ -87,9 +87,16 @@ a.hamburger-menu {
     color: var(--third_color)
 }
 
-.main-menu
+.main-menu, .hamburger-menu
 {
     text-shadow: 2px 2px var(--primary_color) !important;
+}
+
+a.main-menu, a.hamburger-menu
+{
+    text-shadow: 2px 2px var(--primary_color) !important;
+    outline: none;
+    border:none;
 }
 
 a.main-menu {

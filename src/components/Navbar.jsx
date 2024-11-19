@@ -39,6 +39,15 @@ export default function NavBar() {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
+
+
+    window.onresize = function(event) 
+    {
+        setAnchorElNav(null);
+    };
+
+
+
     return (
         <AppBar
             id="tehhead"

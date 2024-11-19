@@ -22,8 +22,8 @@ const Logo2 = (props) => (
 );
 
 const Logo = (props) => (
-    <svg id="logo" width="80" height={props.height} xmlns="http://www.w3.org/2000/svg" version="1.1" xmlSpace="preserve">
-        <a href="./">
+    <a href="./" style={{cursor: 'pointer'}}>
+        <svg id="logo" width="80" height={props.height} xmlns="http://www.w3.org/2000/svg" version="1.1" xmlSpace="preserve">
             <g>
                 <title></title>
                 <g id="T">
@@ -52,8 +52,8 @@ const Logo = (props) => (
                     </g>
                 </g>
             </g>
-        </a>
-    </svg>
+        </svg>
+    </a>
 );
 
 export default Logo;
