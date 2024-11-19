@@ -233,7 +233,7 @@ export default function Misc()
         }
         else if(event.target.value == "Sith")
         {
-            SetColor("#000000","#454545","#dfdfdf","#ff0000","33");
+            SetColor("#000000","#454545","#dfdfdf","#ff0000","80");
             setBackgroundName("empire");
             localStorage.setItem("background_name", "empire");
         }
@@ -245,7 +245,7 @@ export default function Misc()
         }
         else if(event.target.value == "Light")
         {
-            SetColor("#FFEDC7","#949494","#000000","#9D0C0C","bf");
+            SetColor("#EDEDED","#949494","#000000","#9D0C0C","bf");
             setBackgroundName("clean");
             localStorage.setItem("background_name", "clean");
         }
