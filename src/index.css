@@ -11,61 +11,36 @@
     --AppBar-background: var(--primary_color);
 }
 
-a.intext
-{ 
+a.intext {
     color: var(--accent_color);
     font-style: italic;
     text-decoration-line: none;
-
 }
 
+.card {
 
-
-
-
-/*
-.MuiMenu-paper
-{
-    background-color:unset !important;
-    background-color: rgb(from var(--primary_color) r g b / 44%) !important;
-    backdrop-filter: blur(8px) !important;
-    border-radius: 18px !important;
-    
-}*/
-
-
-
-.card
-{
-    xborder: 1px solid hsl(0deg 0% 0% / 25%) !important;
-    border: 1px solid rgb(from var(--primary_color) r g b / 25%) !important;/*40 */
+    border: 1px solid rgb(from var(--primary_color) r g b / 25%) !important;
     border-radius: 16px;
 }
 
 * {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    xcolor: var(--third_color);
 }
 
-button
-{
+button {
     color: var(--accent_color) !important;
     border: 1px solid var(--accent_color) !important;
 }
 
-input
-{
+input {
     color: var(--third_color) !important;
 }
 
-.formItem
-{
+.formItem {
     border: 1px solid var(--accent_color) !important;
 }
 
-
-.socials
-{
+.socials {
     border: 0 !important;
 }
 
@@ -84,7 +59,6 @@ body {
     background-color: var(--primary_color);
     background-attachment: fixed;
     background-repeat: repeat;
-    xbackground-size: cover;
     min-height: 100vh;
 }
 
@@ -98,16 +72,16 @@ a.hamburger-menu {
     color: var(--third_color)
 }
 
-.main-menu, .hamburger-menu
-{
+.main-menu,
+.hamburger-menu {
     text-shadow: 2px 2px var(--primary_color) !important;
 }
 
-a.main-menu, a.hamburger-menu
-{
+a.main-menu,
+a.hamburger-menu {
     text-shadow: 2px 2px var(--primary_color) !important;
     outline: none;
-    border:none;
+    border: none;
 }
 
 a.main-menu {
@@ -168,8 +142,6 @@ a.main-menu:hover::before {
 .App {
     text-align: center;
 }
-
-
 
 #T:hover,
 #A:hover {
@@ -232,64 +204,51 @@ input[type="color"]::-webkit-color-swatch {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
- 
 }
 
-#preset_select
-{
+#preset_select {
     height: 27px;
     border-radius: 8px;
     border: 0;
     background-color: var(--third_color) !important;
 }
 
-
-.MuiInputLabel-root, .MuiFormLabel-colorPrimary, .MuiInputBase-input, .MenuItemItem
-{
+.MuiInputLabel-root,
+.MuiFormLabel-colorPrimary,
+.MuiInputBase-input,
+.MenuItemItem {
     color: var(--third_color) !important;
 }
 
-.MuiInputLabel-shrink
-{
+.MuiInputLabel-shrink {
     color: var(--secondary_color) !important;
 }
-.Mui-focused
-{
+
+.Mui-focused {
     color: var(--accent_color) !important;
 }
 
-
-.form_text
-{
-    xbackground-color: rgb(from var(--third_color) r g b / 10%) !important;
+.form_text {
     border-radius: 8px;
 }
 
-
-.mySelect
-{
-    height:28px !important;
-    
+.mySelect {
+    height: 28px !important;
 }
 
-.mySelect div
-{
-    min-width:50px !important;
+.mySelect div {
+    min-width: 50px !important;
 }
 
-.mySelect fieldset
-{
+.mySelect fieldset {
     border: 2px solid var(--secondary_color) !important;
 }
 
-.mySelect:hover fieldset
-{
+.mySelect:hover fieldset {
     border: 2px solid var(--third_color) !important;
 }
 
 .mySelect:active fieldset,
-.mySelect:focus fieldset
-{
+.mySelect:focus fieldset {
     border: 2px solid var(--accent_color) !important;
 }

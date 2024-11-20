@@ -221,31 +221,31 @@ export default function Misc()
     {
         if(event.target.value == "Jedi")
         {
-            SetColor("#212227","#606060","#ebebeb","#4b8cc8","a6");
+            SetColor("#212227","#606060","#ebebeb","#4b8cc8","99");
             setBackgroundName("republic");
             localStorage.setItem("background_name", "republic");
         }
         else if(event.target.value == "Ravens")
         {
-            SetColor("#000000","#241773","#ebebeb","#9E7C0C","66");
+            SetColor("#000000","#241773","#ebebeb","#9E7C0C","99");
             setBackgroundName("diamonds");
             localStorage.setItem("background_name", "diamonds");
         }
         else if(event.target.value == "Sith")
         {
-            SetColor("#000000","#454545","#dfdfdf","#ff0000","80");
+            SetColor("#000000","#454545","#dfdfdf","#ff0000","99");
             setBackgroundName("empire");
             localStorage.setItem("background_name", "empire");
         }
         else if(event.target.value == "Xbox")
         {
-            SetColor("#231F20","#6B6B6B","#FFFFFF","#30CE3B","78");
+            SetColor("#231F20","#6B6B6B","#FFFFFF","#30CE3B","99");
             setBackgroundName("triangles");
             localStorage.setItem("background_name", "triangles");
         }
         else if(event.target.value == "Light")
         {
-            SetColor("#EDEDED","#949494","#000000","#9D0C0C","bf");
+            SetColor("#EDEDED","#949494","#000000","#9D0C0C","99");
             setBackgroundName("clean");
             localStorage.setItem("background_name", "clean");
         }

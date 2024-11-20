@@ -17,7 +17,7 @@ export default function About()
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }} >
             <Box sx={{ padding: '20px' }} >
                 <Typography variant="h4" sx={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>About </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color) !important', textShadow: '2px 2px var(--primary_color) !important' }} >Me</Typography>
-                <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Subtitle blah blah blah</Typography>
+                <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Get to Know Me Better</Typography>
             </Box>
 
 

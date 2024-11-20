@@ -24,15 +24,15 @@ export default function Skills()
 
         if (xs == false)
         {
-            countStr = '{{count}} activities in the last four months'
+            countStr = '{{count}} contributions in the last four months'
         }
         else if (sm == false)
         {
-            countStr = '{{count}} activities in the last eight months';
+            countStr = '{{count}} contributions in the last eight months';
         }
         else
         {
-            countStr = '{{count}} activities in the last year';
+            countStr = '{{count}} contributions in the last year';
         }
 
 
@@ -79,7 +79,7 @@ export default function Skills()
 
                 <Box sx={{ padding: '20px' }} >
                     <Typography variant="h4" sx={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>My </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >skillset</Typography>
-                    <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Subtitle blah blah blah</Typography>
+                    <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>What I Bring to the Table</Typography>
                 </Box>
 
 
@@ -117,7 +117,7 @@ export default function Skills()
 
                 <Box sx={{ padding: '20px' }} >
                     <Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >Tools </Typography><Typography variant="h4" sx={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>i use</Typography>
-                    <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Subtitle blah blah blah</Typography>
+                    <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>My Workflow Essentials</Typography>
                 </Box>
 
                     <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: '20px' }} >
@@ -151,7 +151,7 @@ export default function Skills()
 
                 <Box sx={{ padding: '20px' }} >
                     <Typography variant="h4" sx={{ display: 'inline',textShadow: '2px 2px var(--primary_color) !important' }}>Days i </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >code</Typography>
-                    <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}>Subtitle blah blah blah</Typography>
+                    <Typography variant="subtitle1" sx={{textShadow: '2px 2px var(--primary_color) !important'}}><a target="_blank" href="https://github.com/keytonic" class="intext">@keytonic</a> on GitHub</Typography>
                 </Box>
 
 
@@ -168,7 +168,6 @@ export default function Skills()
                             }} 
                         >
                             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' }, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 'max-content', gap: '8px' }}>
-                                <Typography variant="caption" sx={{ display: 'flex', width: '100%',textShadow: '2px 2px var(--primary_color) !important' }}>@keytonic on GitHub</Typography>
                                 <GitHubCalendar 
                                     username="keytonic" 
                                     theme={ghTheme} 
