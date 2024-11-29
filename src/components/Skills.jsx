@@ -92,7 +92,7 @@ export default function Skills() {
                 </Box>
 
                 <Box sx={{ padding: '20px' }} >
-                    <Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >Tools </Typography><Typography variant="h4" sx={{ display: 'inline', textShadow: '2px 2px var(--primary_color) !important' }}>i use</Typography>
+                    <Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >Tools </Typography><Typography variant="h4" sx={{ display: 'inline', textShadow: '2px 2px var(--primary_color) !important' }}>I use</Typography>
                     <Typography variant="subtitle1" sx={{ textShadow: '2px 2px var(--primary_color) !important' }}>My workflow essentials</Typography>
                 </Box>
 
@@ -125,7 +125,7 @@ export default function Skills() {
                 </Box>
 
                 <Box sx={{ padding: '20px' }} >
-                    <Typography variant="h4" sx={{ display: 'inline', textShadow: '2px 2px var(--primary_color) !important' }}>Days i </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >code</Typography>
+                    <Typography variant="h4" sx={{ display: 'inline', textShadow: '2px 2px var(--primary_color) !important' }}>Days I </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color)' }} >code</Typography>
                     <Typography variant="subtitle1" sx={{ textShadow: '2px 2px var(--primary_color) !important' }}><a target="_blank" href="https://github.com/keytonic" className="intext">@keytonic</a> on GitHub</Typography>
                 </Box>
 
