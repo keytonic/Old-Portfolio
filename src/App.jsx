@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -10,43 +9,30 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Misc from "./components/Misc";
 import Box from '@mui/material/Box';
-
-import { useEffect } from "react";
 import Backgrounds from './components/Backgrounds';
 import ReactDOMServer from 'react-dom/server';
 
-
 /*
+npm create vite@latest
+npx vite dev 
+npx vite build
+
 TODO:
 buymeacoffee.com https://buymeacoffee.com/drootown
 Patreon
 crowdmade.com
 
-
-add options to change background and adjust transparencies
-fix hamburgermenu drop shadow color to be accent color
-
 */
 
+export default function App() {
 
-
-
-
-export default function App() 
-{
     let style = getComputedStyle(document.body);
-    //let primary_color = localStorage.getItem("primary_color");
-    //let accent_color = localStorage.getItem("accent_color");
-    //let secondary_color = localStorage.getItem("secondary_color");
-    //let third_color = localStorage.getItem("third_color");
-
-    
 
     let colors = {
-        primary_color   : localStorage.getItem("primary_color"),
-        secondary_color : localStorage.getItem("secondary_color"), 
-        third_color     : localStorage.getItem("third_color"),
-        accent_color    : localStorage.getItem("accent_color")
+        primary_color: localStorage.getItem("primary_color"),
+        secondary_color: localStorage.getItem("secondary_color"),
+        third_color: localStorage.getItem("third_color"),
+        accent_color: localStorage.getItem("accent_color")
     };
 
     if (colors.accent_color != null) {
@@ -85,35 +71,17 @@ export default function App()
 
     let background_name = localStorage.getItem("background_name");
 
-    if(background_name == null)
-    {
+    if (background_name == null) {
         background_name = "triangles";
     }
 
-
-    function setBackground(primary_color, secondary_color,third_color,accent_color,background_name) 
-    {
-        /*
-        document.getElementById("svg_rec").setAttribute("fill", secondary_color);
-        document.getElementById("stop_zero").setAttribute("stop-color", secondary_color);
-        document.getElementById("stop_one").setAttribute("stop-color", primary_color);
-    
-        let svg = document.getElementById("svgBackground");
-        let background = '<svg id="svgBackground" xmlns="http://www.w3.org/2000/svg" width="100%">' + svg.innerHTML + '</svg>';
-        let encoded = window.btoa(background);
-        document.body.style.backgroundImage = "url(data:image/svg+xml;base64," + encoded + ")";
-        */
-
+    function setBackground(primary_color, secondary_color, third_color, accent_color, background_name) {
         const htmlString = ReactDOMServer.renderToString(<Backgrounds primary_color={primary_color} secondary_color={secondary_color} third_color={third_color} accent_color={accent_color} name={background_name} />);
         let encoded = window.btoa(htmlString);
         document.body.style.backgroundImage = "url(data:image/svg+xml;base64," + encoded + ")";
     }
 
-
-    setBackground(colors.primary_color, colors.secondary_color,colors.third_color,colors.accent_color,background_name);
-
-
-
+    setBackground(colors.primary_color, colors.secondary_color, colors.third_color, colors.accent_color, background_name);
 
     return (
         <BrowserRouter>
@@ -131,7 +99,7 @@ export default function App()
                         <Route path="*" element={<Home />} />
                     </Routes>
                 </Box>
-                <Footer colors={colors}/>
+                <Footer colors={colors} />
             </div>
         </BrowserRouter>
     );

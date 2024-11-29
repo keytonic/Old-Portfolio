@@ -1,6 +1,4 @@
 :root {
-    /*https://coolors.co/0f1214-616161-39d353-d2d5dd-b8bacf*/
-
     --primary_color: #231F20;
     --secondary_color: #6B6B6B;
     --third_color: #FFFFFF;
@@ -27,7 +25,9 @@ a.intext {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-button {
+button,
+.socials,
+.MuiButton-outlined {
     color: var(--accent_color) !important;
     border: 1px solid var(--accent_color) !important;
 }
@@ -251,4 +251,101 @@ input[type="color"]::-webkit-color-swatch {
 .mySelect:active fieldset,
 .mySelect:focus fieldset {
     border: 2px solid var(--accent_color) !important;
+}
+
+.card-move {
+    animation-duration: .3s;
+    animation-iteration-count: 1;
+    transform-origin: bottom;
+    animation-fill-mode: forwards;
+}
+
+.card-move:hover {
+    animation-name: example;
+    animation-timing-function: ease;
+}
+
+@keyframes example {
+    0% {}
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.rpv-core__inner-page {
+    background-color: unset !important;
+}
+
+.rpv-core__inner-pages {
+    overflow: hidden !important;
+}
+
+canvas,
+#pdf,
+.rpv-core__canvas-layer,
+.rpv-core__page-layer {
+    width: 816px !important;
+    height: 1056px !important;
+    overflow: hidden !important;
+}
+
+@media (max-width: 900px) {
+
+    canvas,
+    #pdf,
+    .rpv-core__canvas-layer,
+    .rpv-core__page-layer {
+        width: 716px !important;
+        height: 927px !important;
+        overflow: hidden !important;
+    }
+}
+
+@media (max-width: 800px) {
+
+    canvas,
+    #pdf,
+    .rpv-core__canvas-layer,
+    .rpv-core__page-layer {
+        width: 616px !important;
+        height: 797px !important;
+        overflow: hidden !important;
+    }
+}
+
+@media (max-width: 700px) {
+
+    canvas,
+    #pdf,
+    .rpv-core__canvas-layer,
+    .rpv-core__page-layer {
+        width: 516px !important;
+        height: 668px !important;
+        overflow: hidden !important;
+    }
+}
+
+@media (max-width: 600px) {
+
+    canvas,
+    #pdf,
+    .rpv-core__canvas-layer,
+    .rpv-core__page-layer {
+        width: 416px !important;
+        height: 568px !important;
+        overflow: hidden !important;
+    }
+}
+
+@media (max-width: 500px) {
+
+    canvas,
+    #pdf,
+    .rpv-core__canvas-layer,
+    .rpv-core__page-layer {
+        width: 316px !important;
+        height: 409px !important;
+        overflow: hidden !important;
+    }
 }

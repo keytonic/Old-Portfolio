@@ -10,28 +10,14 @@ import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
 import Logo from './Logo';
-import { useEffect } from "react";
 
-//Added Skills and Contact page per requirements of unit 3
 const pages = ['Home', 'Skills', 'Projects', 'About', 'Resume', 'Misc', 'Contact'];
-//const pages = ['Home', 'About', 'Projects', 'Resume'];
 
 export default function NavBar() {
-
     let style = getComputedStyle(document.body);
     let trans = style.getPropertyValue('--trans');
     let primary_color_trans = style.getPropertyValue('--primary_color') + trans;
     let accent_color_trans = style.getPropertyValue('--accent_color') + "26";
-/*
-    useEffect(() => {
-        let elements = document.getElementsByClassName('MuiMenu-paper');
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].style.setProperty("background-color", primary_color_trans, "important");
-            elements[i].style.setProperty("backdrop-filter", "blur(8px)", "important");
-            elements[i].style.setProperty("border-radius", "18px", "important");
-        }
-    });*/
-
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -39,15 +25,9 @@ export default function NavBar() {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
-
-
-    window.onresize = function(event) 
-    {
+    window.onresize = function (event) {
         setAnchorElNav(null);
     };
-
-
-
     return (
         <AppBar
             id="tehhead"
@@ -59,12 +39,11 @@ export default function NavBar() {
             }}
         >
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
-                <Toolbar disableGutters sx={{minHeight: '64px'}}>
-
+                <Toolbar disableGutters sx={{ minHeight: '64px' }}>
                     {/*normal logo and text, far left*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-start', gap: '25px', alignItems: 'center' }}>
                         <Logo color1='var(--accent_color)' color2='var(--primary_color)' height="50px" />
-                        <Typography variant="h6" noWrap sx={{ color: 'var(--accent_color)',textShadow: '2px 2px var(--primary_color) !important' }}>Andrew Towner</Typography>
+                        <Typography variant="h6" noWrap sx={{ color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color) !important' }}>Andrew Towner</Typography>
                     </Box>
                     {/*normal menu, far right*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-end', gap: '25px' }}>
@@ -107,7 +86,8 @@ export default function NavBar() {
                                     backgroundColor: primary_color_trans + ' !important',
                                     backdropFilter: 'blur(2px) !important',
                                     borderRadius: '18px !important',
-                                  }
+                                    boxShadow: '0 4px 5px 3px ' + accent_color_trans + ' !important',
+                                }
                             }}
                         >
                             {pages.map((page, i) => (
@@ -129,9 +109,6 @@ export default function NavBar() {
                     </Box>
                     <Box sx={{ width: '33.3333%', display: { xs: 'flex', md: 'none' }, flexDirection: 'row', justifyContent: 'flex-start' }}>
                     </Box>
-
-
-
                 </Toolbar>
             </Container>
         </AppBar>
