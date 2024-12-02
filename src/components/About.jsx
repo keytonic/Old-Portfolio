@@ -29,7 +29,7 @@ export default function About() {
                     }}
                 >
                     <Typography variant="subtitle1" sx={{ textShadow: '2px 2px var(--primary_color) !important', textAlign: 'justify' }}>
-                        I began coding as a teenager in the late 1990s, starting with <a className="intext" href="https://en.wikipedia.org/wiki/Visual_Basic_(classic)" target="_blank">Visual Basic 6.0 </a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;I began coding as a teenager in the late 1990s, starting with <a className="intext" href="https://en.wikipedia.org/wiki/Visual_Basic_(classic)" target="_blank">Visual Basic 6.0 </a>
                         to create simple point-and-click applications for personal projects and enjoyment. I soon transitioned to developing mods
                         for video games like Unreal Tournament using <a className="intext" href="https://isocpp.org" target="_blank">C++</a> and <a className="intext" href="https://en.wikipedia.org/wiki/UnrealScript?WT.mc_id=14371-DEV-gamasutra-article11" target="_blank">
                             UnrealScript</a>. Around the same time, I started building websites using free hosting platforms like <a className="intext" href="https://en.wikipedia.org/wiki/GeoCities" target="_blank">
