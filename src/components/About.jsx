@@ -56,12 +56,9 @@ export default function About() {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }}>
-
-
-
             <Box sx={{ padding: '20px' }} >
                 <Typography variant="h4" sx={{ display: 'inline', textShadow: '2px 2px var(--primary_color) !important' }}>About </Typography><Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color) !important', textShadow: '2px 2px var(--primary_color) !important' }} >Me</Typography>
-                <Typography variant="subtitle1" sx={{ textShadow: '2px 2px var(--primary_color) !important' }}>Get to know me better</Typography>
+                <Typography variant="subtitle1" sx={{ textShadow: '2px 2px var(--primary_color) !important' }}>A little about myself.</Typography>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: '20px', maxWidth: '850px' }} >
                 <Box
@@ -109,9 +106,7 @@ export default function About() {
                     </Typography>
                 </Box>
             </Box>
-
-
-
+            
             <Box sx={{ padding: '20px' }} >
                 <Typography variant="h4" sx={{ display: 'inline', color: 'var(--accent_color)', textShadow: '2px 2px var(--primary_color) !important' }}>My </Typography><Typography variant="h4" sx={{ display: 'inline', textShadow: '2px 2px var(--primary_color)' }} >skillset</Typography>
                 <Typography variant="subtitle1" sx={{ textShadow: '2px 2px var(--primary_color) !important' }}>What I bring to the table</Typography>
