@@ -30,7 +30,7 @@ export default function Footer() {
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
                 <Toolbar disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', flexWrap: 'wrap', marginTop: { xs: '10px', md: '0px' }, marginBottom: { xs: '10px', md: '0px' } }}>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
-                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: { md: 'flex-start', xs: 'center', textShadow: '2px 2px var(--primary_color) !important' } }} > Designed and Developed by Andrew Towner. </Typography>
+                        <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: { md: 'flex-start', xs: 'center', textShadow: '2px 2px var(--primary_color) !important' } }} > Developed by Andrew Towner. </Typography>
                     </Box>
                     <Box sx={{ width: { md: '33.3333%', xs: '100%' } }}>
                         <Typography variant="subtitle1" sx={{ flexGrow: 1, color: 'var(--third_color)', textDecoration: 'none', display: 'flex', justifyContent: 'center', textShadow: '2px 2px var(--primary_color) !important' }} >© 2024 AndrewTowner.com. All rights reserved.</Typography>

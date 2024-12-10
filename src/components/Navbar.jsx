@@ -10,8 +10,9 @@ import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
 import Logo from './Logo';
+import SettingsIcon from '@mui/icons-material/Settings';
 
-const pages = ['Home', 'Skills', 'Projects', 'About', 'Resume', 'Misc', 'Contact'];
+const pages = ['Home',  'Projects', 'About', 'Resume', 'Contact'];
 
 export default function NavBar() {
     let style = getComputedStyle(document.body);
@@ -39,7 +40,7 @@ export default function NavBar() {
             }}
         >
             <Container sx={{ maxWidth: '1320px' }} maxWidth={false}>
-                <Toolbar disableGutters sx={{ minHeight: '64px' }}>
+                <Toolbar disableGutters sx={{ minHeight: '64px',justifyContent: 'space-evenly' }}>
                     {/*normal logo and text, far left*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-start', gap: '25px', alignItems: 'center' }}>
                         <Logo color1='var(--accent_color)' color2='var(--primary_color)' height="50px" />
@@ -52,7 +53,7 @@ export default function NavBar() {
                         ))}
                     </Box>
                     {/*hamburger menu*/}
-                    <Box sx={{ width: '33.3333%', display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             className="socials"
                             size="large"
@@ -62,7 +63,7 @@ export default function NavBar() {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon
+                            <MenuIcon className="menu_button"
                                 sx={{ color: 'var(--third_color)' }}
                             />
                         </IconButton>
@@ -104,10 +105,13 @@ export default function NavBar() {
                         </Menu>
                     </Box>
                     {/*small logo, center*/}
-                    <Box sx={{ width: '33.3333%', display: { xs: 'flex', md: 'none' }, flexDirection: 'row', justifyContent: 'center' }}>
+                    <Box sx={{ display: { xs: 'flex', md: 'none' }, flexDirection: 'row', justifyContent: 'center' }}>
                         <Logo color1='var(--accent_color)' color2='var(--primary_color)' height="50px" />
                     </Box>
-                    <Box sx={{ width: '33.3333%', display: { xs: 'flex', md: 'none' }, flexDirection: 'row', justifyContent: 'flex-start' }}>
+                    <Box sx={{  marginLeft: { xs: '0', md: '25px' }, display: { xs: 'flex', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-end' }}>
+                        <Link to= "./misc" style={{margin: '0', padding: '0', display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
+                            <SettingsIcon className="options_button" sx={{ padding: '12px' , color: 'var(--third_color)' }} />
+                        </Link>
                     </Box>
                 </Toolbar>
             </Container>

@@ -7,6 +7,9 @@
     --trans: 99;
 
     --AppBar-background: var(--primary_color);
+
+
+    --rpv-core__page-layer-box-shadow: 0 !important;
 }
 
 a.intext {
@@ -265,6 +268,11 @@ input[type="color"]::-webkit-color-swatch {
     animation-timing-function: ease;
 }
 
+.options_button:hover, .menu_button:hover
+{
+    color: var(--accent_color);
+}
+
 @keyframes example {
     0% {}
 
@@ -289,6 +297,18 @@ canvas,
     height: 1056px !important;
     overflow: hidden !important;
 }
+
+
+.icon2:hover .icon2_sub
+{
+    fill: var(--accent_color) !important;
+}
+
+.icon:hover
+{
+    background-color: var(--accent_color) !important;
+}
+
 
 @media (max-width: 900px) {
 
