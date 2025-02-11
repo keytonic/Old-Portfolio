@@ -10,8 +10,14 @@ import Misc from "./components/Misc";
 import Box from '@mui/material/Box';
 import Backgrounds from './components/Backgrounds';
 import ReactDOMServer from 'react-dom/server';
+import { Link } from "react-router-dom";
+
+import React, { Component } from 'react';
 
 /*
+Set-ExecutionPolicy Unrestricted
+
+
 npm create vite@latest
 npx vite dev 
 npx vite build
@@ -82,6 +88,15 @@ export default function App() {
 
     setBackground(colors.primary_color, colors.secondary_color, colors.third_color, colors.accent_color, background_name);
 
+
+
+    const RedirectPage = () => 
+    {
+        window.location.replace("https://keytonic.github.io");
+        return null;
+    };
+
+
     return (
         <BrowserRouter>
             <div className="App">
@@ -91,6 +106,7 @@ export default function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/about" element={<About />} />
+                        <Route path='/blog' element={<RedirectPage />}/>
                         <Route path="/resume" element={<Resume />} />
                         <Route path="/Contact" element={<Contact />} />
                         <Route path="/Misc" element={<Misc />} />

@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import Logo from './Logo';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-const pages = ['Home',  'Projects', 'About', 'Resume', 'Contact'];
+const pages = ['Home',   'About', 'Projects', 'Resume', 'Contact', 'Blog'];
 
 export default function NavBar() {
     let style = getComputedStyle(document.body);
@@ -49,8 +49,14 @@ export default function NavBar() {
                     {/*normal menu, far right*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-end', gap: '25px' }}>
                         {pages.map((page, i) => (
-                            <Link key={i} className="main-menu" to={page === "Home" ? "./" : "./" + page.toLowerCase()}> {page}</Link>
+                            <Link key={i} className="main-menu" to={(page === "Blog" ? "https://keytonic.github.io" : (page === "Home" ? "./" : "./" + page.toLowerCase())    )}> {page}</Link>
                         ))}
+                            
+                        {/*
+                        {pages.map((page, i) => (
+                        <Link key={i} className="main-menu" to={page === "Home" ? "./" : "./" + page.toLowerCase()}> {page}</Link>
+                        ))}*/}
+
                     </Box>
                     {/*hamburger menu*/}
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
