@@ -55,8 +55,10 @@ function MyForm() {
         else {
             var http = new XMLHttpRequest();
 
-            http.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
+            http.onreadystatechange = function () 
+            {
+                if (http.readyState == 4)
+                {
                     setmyAlert({ open: true, severity: "success", message: "Email sent!" });
                     setmyEmail({ name: "", email: "", phone: "", message: "" });
                 }
