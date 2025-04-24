@@ -2,7 +2,7 @@ import React from "react";
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import ProjectsData from "../../public/projects/projectsdata";
+import ProjectsData from "../projectsdata";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 

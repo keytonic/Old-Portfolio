@@ -111,6 +111,19 @@ export default function App() {
                         <Route path="/Contact" element={<Contact />} />
                         <Route path="/Misc" element={<Misc />} />
                         <Route path="*" element={<Home />} />
+
+
+                        <Route path="/Old-Portfolio/" element={<Home />} />
+                        <Route path="/Old-Portfolio/projects" element={<Projects />} />
+                        <Route path="/Old-Portfolio/about" element={<About />} />
+                        <Route path='/Old-Portfolio/blog' element={<RedirectPage />}/>
+                        <Route path="/Old-Portfolio/resume" element={<Resume />} />
+                        <Route path="/Old-Portfolio/Contact" element={<Contact />} />
+                        <Route path="/Old-Portfolio/Misc" element={<Misc />} />
+                        <Route path="*" element={<Home />} />
+
+
+
                     </Routes>
                 </Box>
                 <Footer colors={colors} />

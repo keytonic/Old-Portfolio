@@ -62,9 +62,15 @@ function MyForm() {
                 }
             };
 
-            http.open('POST', 'post.php', true);
+            //http.open('POST', 'post.php', true);
+            http.open('POST', 'https://www.keytonic.net/projects/email/index.php', true);
             http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             http.send(`name=${myEmail.name}&phone=${myEmail.phone}&email=${myEmail.email}&message=${myEmail.message}`);
+
+
+
+
+
         }
     }
 
