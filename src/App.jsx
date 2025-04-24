@@ -120,7 +120,7 @@ export default function App() {
                         <Route path="/Old-Portfolio/resume" element={<Resume />} />
                         <Route path="/Old-Portfolio/Contact" element={<Contact />} />
                         <Route path="/Old-Portfolio/Misc" element={<Misc />} />
-                        <Route path="*" element={<Home />} />
+                        <Route path="/Old-Portfolio/*" element={<Home />} />
 
 
 
