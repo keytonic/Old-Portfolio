@@ -1,6 +1,6 @@
 # My Old portfolio 
 
-This is an older version of [https://www.andrewtowner.com](https://www.andrewtowner.com) and is not longer being used or maintained.
+This is an older version of [https://www.andrewtowner.com](https://www.andrewtowner.com) and is no longer being used or maintained.
 
 A showcase of my expertise, experience, and technical capabilities. It highlights my proficiency in front-end and back-end technologies, frameworks, and tools, giving potential employers or clients a clear understanding of my skills.
 
