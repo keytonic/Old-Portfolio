@@ -105,7 +105,7 @@ export default function NavBar() {
                                     key={page}
                                     onClick={handleCloseNavMenu}
                                 >
-                                    <Link key={i} className="hamburger-menu" sx={{ textAlign: 'center' }} to={page === "Home" ? "./" : "./" + page.toLowerCase()} >{page}</Link>
+                                    <Link key={i} className="hamburger-menu" sx={{ textAlign: 'center' }} to={page === "Home" ? "./Old-Portfolio" : "./Old-Portfolio/" + page.toLowerCase()} >{page}</Link>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -115,7 +115,7 @@ export default function NavBar() {
                         <Logo color1='var(--accent_color)' color2='var(--primary_color)' height="50px" />
                     </Box>
                     <Box sx={{  marginLeft: { xs: '0', md: '25px' }, display: { xs: 'flex', md: 'flex' }, flexDirection: 'row', justifyContent: 'flex-end' }}>
-                        <Link to= "./misc" style={{margin: '0', padding: '0', display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
+                        <Link to= "./Old-Portfolio/misc" style={{margin: '0', padding: '0', display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
                             <SettingsIcon className="options_button" sx={{ padding: '12px' , color: 'var(--third_color)' }} />
                         </Link>
                     </Box>

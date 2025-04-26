@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from "./components/Home";
@@ -98,36 +98,23 @@ export default function App() {
 
 
     return (
-        <BrowserRouter>
+        <MemoryRouter >
             <div className="App">
                 <Navbar />
                 <Box sx={{ minHeight: { xs: 'calc(100vh - 219px)', md: 'calc(100vh - 168px)' }, padding: '20px' }}>
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/projects" element={<Projects />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path='/blog' element={<RedirectPage />}/>
-                        <Route path="/resume" element={<Resume />} />
-                        <Route path="/Contact" element={<Contact />} />
-                        <Route path="/Misc" element={<Misc />} />
-                        <Route path="*" element={<Home />} />
-
-
-                        <Route path="/Old-Portfolio/" element={<Home />} />
+                        <Route path="/Old-Portfolio" element={<Home />} />
                         <Route path="/Old-Portfolio/projects" element={<Projects />} />
                         <Route path="/Old-Portfolio/about" element={<About />} />
                         <Route path='/Old-Portfolio/blog' element={<RedirectPage />}/>
                         <Route path="/Old-Portfolio/resume" element={<Resume />} />
-                        <Route path="/Old-Portfolio/Contact" element={<Contact />} />
-                        <Route path="/Old-Portfolio/Misc" element={<Misc />} />
-                        <Route path="/Old-Portfolio/*" element={<Home />} />
-
-
-
+                        <Route path="/Old-Portfolio/contact" element={<Contact />} />
+                        <Route path="/Old-Portfolio/misc" element={<Misc />} />
+                        <Route path="*" element={<Home />} />
                     </Routes>
                 </Box>
                 <Footer colors={colors} />
             </div>
-        </BrowserRouter>
+        </MemoryRouter>
     );
 }
